@@ -1,0 +1,18 @@
+{
+    "name": "GamepadMappingDiscoveryEditorAssembly",
+    "rootNamespace": "",
+    "references": [
+        "GUID:91f96640afe61f940bd76381576ef6fe"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
