@@ -305,6 +305,10 @@ public class EnemyController : MonoBehaviour
     }
     public void DoHunt()
     {
+        if (_target == null)
+        {
+            PickTarget();
+        }
         // On détermine la direction vers la cible
         Vector2 direction = (_target.transform.position - transform.position).normalized;
         // On applique le déplacement
@@ -314,6 +318,10 @@ public class EnemyController : MonoBehaviour
     }
     public void DoFlee()
     {
+        if (_target == null)
+        {
+            PickTarget();
+        }
         // On détermine la direction opposée à la cible
         Vector2 direction = (transform.position - _target.transform.position).normalized;
         // On applique le déplacement

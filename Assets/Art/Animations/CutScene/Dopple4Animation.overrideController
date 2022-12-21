@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Dopple4Animation
+  m_Controller: {fileID: 9100000, guid: 9da0e24a7f4564341b9c107d26b38290, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 404a994a2bee4844a98cc6280d976404, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 366fd99bca55901498cc9cd8ff3905b2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5c4b62c71aa66d24990b038305d6b133, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e55f85ef01f9e244898042f76c1afe57, type: 2}

@@ -67,9 +67,4 @@ public class GameHUD : MonoBehaviour
     {
         _victoryMenu.enabled = true;
     }
-
-    public void ShowGameOverMenu()
-    {
-        _gameOverMenu.enabled = true;
-    }
 }

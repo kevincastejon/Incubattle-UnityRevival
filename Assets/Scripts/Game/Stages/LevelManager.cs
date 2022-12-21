@@ -7,14 +7,16 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private IntVariable _currentLevel;
     [SerializeField] private BoolVariable _isCoop;
-    [SerializeField] private PrefabVariable _p1;
-    [SerializeField] private PrefabVariable _p2;
+    [SerializeField] private PrefabVariable _p1Prefab;
+    [SerializeField] private PrefabVariable _p2Prefab;
     [SerializeField] private IntVariable _p2HealthSO;
     [SerializeField] private IntVariable _p2StaminaSO;
     [SerializeField] private IntVariable _p2LifesSO;
     [SerializeField] private Transform _p1Starter;
     [SerializeField] private Transform _p2Starter;
     [SerializeField] private string[] _levels;
+    private PlayerController _p1;
+    private PlayerController _p2;
 
     private CameraFollow _cameraFollow;
 
@@ -23,12 +25,21 @@ public class LevelManager : MonoBehaviour
         _cameraFollow = FindObjectOfType<CameraFollow>();
     }
 
+    private void Update()
+    {
+        if ((!_isCoop.Value && _p1 == null) || (_isCoop.Value && _p1 == null && _p2 == null))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+    }
     private void Start()
     {
-        _cameraFollow.Target1 = Instantiate(_p1.Value, _p1Starter.position, Quaternion.identity).transform;
+        _p1 = Instantiate(_p1Prefab.Value, _p1Starter.position, Quaternion.identity).GetComponent<PlayerController>();
+        _cameraFollow.Target1 = _p1.transform;
         if (_isCoop.Value)
         {
-            _cameraFollow.Target2 = Instantiate(_p2.Value, _p2Starter.position, Quaternion.identity).transform;
+            _p2 = Instantiate(_p2Prefab.Value, _p2Starter.position, Quaternion.identity).GetComponent<PlayerController>();
+            _cameraFollow.Target2 = _p2.transform;
             PlayerInput p2Input = _cameraFollow.Target2.GetComponent<PlayerInput>();
             p2Input.HorizontalAxisName += "P2";
             p2Input.VerticalAxisName += "P2";

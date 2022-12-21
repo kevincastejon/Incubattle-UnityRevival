@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     [Tooltip("Delai avant résurrection")]
     private float _resurrectionDuration = 3f;
+    [SerializeField]
+    [Tooltip("Delai avant disparition du cadavre")]
+    private float _vanishingDuration = 3f;
 
     //Speed settings
     [Header("Speed Settings")]
@@ -203,6 +206,7 @@ public class PlayerController : MonoBehaviour
     private float _attackComboEndTime;                          // heure de fin du combo d'attaque
     private float _knockBackEndTime;                            // heure de fin de knockBack
     private float _resurrectionEndTime;                         // heure de fin de resurrection
+    private float _vanishingEndTime;                            // heure de fin de disparition de cadavre
     private float _landingEndTime;                              // heure de fin d'atterissage
 
     // Variables d'attaques
@@ -501,6 +505,21 @@ public class PlayerController : MonoBehaviour
         _lifes.Value--;
         // On remet les points de vie au maximum
         _healthPoints.Value = _maxHealthPoints.Value;
+    }
+
+    public void StartVanishing()
+    {
+        // On détermine l'heure où la resurection sera terminé
+        _vanishingEndTime = Time.time + _vanishingDuration;
+    }
+    public void DoVanishing()
+    {
+        // Si l'heure de disparition du cadavre est atteinte
+        if (Time.time > _vanishingEndTime)
+        {
+            // On détruit l'ennemi
+            Destroy(gameObject);
+        }
     }
 
     public void StartKnockBack(AttackData attackData)

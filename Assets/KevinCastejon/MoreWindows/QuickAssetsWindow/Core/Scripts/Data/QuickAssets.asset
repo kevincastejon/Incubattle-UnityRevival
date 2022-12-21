@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _quickAssets:
   - {fileID: 2778076765833894126, guid: 528407a49c167ad42a791afdcd8f098d, type: 3}
-  - {fileID: 5621422491711864805, guid: 0308fc23c2176364eba37c1326818f15, type: 3}
   - {fileID: 102900000, guid: 82f5909aa6e030a41a2973682160bfc2, type: 3}
   - {fileID: 102900000, guid: 0b1043f132ffbb944bf0a4095e3f0b3c, type: 3}
   - {fileID: 102900000, guid: d0347ab3c1d939646bfdab64d9f9130e, type: 3}

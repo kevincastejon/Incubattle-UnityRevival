@@ -16,7 +16,6 @@ public class HealthStateMachine : MonoBehaviour
     private SFXController _sfxController;
     private PlayerController _controller;
     private HitBox _hitbox;
-    private GameHUD _hud;
     private CombatStateMachine _combatStateMachine;
 
     public PlayerHealthState CurrentState { get => _currentState; private set => _currentState = value; }
@@ -35,7 +34,6 @@ public class HealthStateMachine : MonoBehaviour
         _sfxController = GetComponentInChildren<SFXController>();
         _controller = GetComponent<PlayerController>();
         _hitbox = GetComponentInChildren<HitBox>();
-        _hud = FindObjectOfType<GameHUD>();
         _combatStateMachine = GetComponent<CombatStateMachine>();
     }
     private void Start()
@@ -258,21 +256,21 @@ public class HealthStateMachine : MonoBehaviour
     {
         // On envoie les paramètres necessaires à l'Animator
         _animator.SetBool("IsDead", true);
-        // On affiche le menu de Game Over
-        _hud.ShowGameOverMenu();
         // On démarre le SFX
         _sfxController.TriggerDead();
+        //
+        _controller.StartVanishing();
     }
     private void OnUpdateDead()
     {
+        //
+        _controller.DoVanishing();
     }
     private void OnFixedUpdateDead()
     {
     }
     private void OnExitDead()
     {
-        // On envoie les paramètres necessaires à l'Animator
-        _animator.SetBool("IsDead", false);
     }
 
 }
