@@ -19,6 +19,8 @@ public class Collectible : MonoBehaviour
     [SerializeField] private CollectibleType _type;
     [SerializeField] private int _value;
     [SerializeField] private AudioClip _sound;
+    [SerializeField] private Vector2 _initialDirection;
+    [SerializeField] private Vector2 _initialVariation;
     private Rigidbody2D _rigidbody;
     private AudioSource _audioSource;
     private float _spriteVerticalVelocity;
@@ -34,8 +36,8 @@ public class Collectible : MonoBehaviour
 
     private void Start()
     {
-        _rigidbody.AddForce(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)), ForceMode2D.Impulse);
-        _spriteVerticalVelocity = Random.Range(6f,8f);
+        _rigidbody.AddForce(new Vector2(_initialDirection.x + Random.Range(-_initialVariation.x, _initialVariation.x), _initialDirection.y + Random.Range(-_initialVariation.y, _initialVariation.y)), ForceMode2D.Impulse);
+        _spriteVerticalVelocity = Random.Range(6f, 8f);
     }
 
     private void Update()

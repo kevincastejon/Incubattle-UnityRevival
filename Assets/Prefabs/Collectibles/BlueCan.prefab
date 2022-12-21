@@ -138,6 +138,8 @@ MonoBehaviour:
   _type: 0
   _value: 3
   _sound: {fileID: 8300000, guid: 77364ef7c2b68454bb437329766f65e0, type: 3}
+  _initialDirection: {x: 0, y: -2}
+  _initialVariation: {x: 1, y: 1}
 --- !u!50 &1393732317316721692
 Rigidbody2D:
   serializedVersion: 4
@@ -352,3 +354,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 4442703266046613574}
+  _forceFrontRef: 0

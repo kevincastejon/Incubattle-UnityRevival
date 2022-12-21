@@ -63,6 +63,22 @@ PrefabInstance:
       propertyPath: _value
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4442703266046613575, guid: ca68dd223fe74e64c921b71957759921, type: 3}
+      propertyPath: _initialDirection.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442703266046613575, guid: ca68dd223fe74e64c921b71957759921, type: 3}
+      propertyPath: _initialDirection.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442703266046613575, guid: ca68dd223fe74e64c921b71957759921, type: 3}
+      propertyPath: _initialVariation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442703266046613575, guid: ca68dd223fe74e64c921b71957759921, type: 3}
+      propertyPath: _initialVariation.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4442703266046613577, guid: ca68dd223fe74e64c921b71957759921, type: 3}
       propertyPath: m_Name
       value: Disc

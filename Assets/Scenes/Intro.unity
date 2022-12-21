@@ -3001,11 +3001,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.25
-  _useXAxis: 0
-  _useYAxis: 0
+  _useXAxis: 1
+  _useYAxis: 1
   _useZAxis: 0
   _autoRun: 1
-  _camera: {fileID: 859405020}
+  _target: {fileID: 859405021}
 --- !u!4 &1956835037
 Transform:
   m_ObjectHideFlags: 0

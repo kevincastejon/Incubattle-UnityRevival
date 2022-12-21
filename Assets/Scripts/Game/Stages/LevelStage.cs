@@ -110,6 +110,7 @@ public class LevelStage : MonoBehaviour
         else
         {
             // On ré-assigne les contraintes originales de la camera
+            _stageWallsContainer.gameObject.SetActive(false);
             _camera.Constraint = _constraintBackup;
             _isCompleted = true;
             _onCompleted.Invoke();

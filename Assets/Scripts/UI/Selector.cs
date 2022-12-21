@@ -7,12 +7,13 @@ public class Selector : MonoBehaviour
 {
     [SerializeField] private Transform _selector;
     [SerializeField] private Transform[] _selections;
-    [SerializeField] private UnityEvent _onSelect;
-    [SerializeField] private UnityEvent _onDeselect;
+    [SerializeField] private UnityEvent<int> _onSelect;
+    [SerializeField] private UnityEvent<int> _onDeselect;
     [SerializeField] private string _axisName = "Horizontal";
     [SerializeField] private string _buttonName = "Attack";
     [SerializeField] private AudioClip _moveSound;
     [SerializeField] private AudioClip _selectSound;
+    [SerializeField] private bool _activationSync = true;
 
     private int _selection;
     private bool _selected;
@@ -35,7 +36,10 @@ public class Selector : MonoBehaviour
 
     private void Update()
     {
-        _selections[_selection].gameObject.SetActive(true);
+        if (_activationSync)
+        {
+            _selections[_selection].gameObject.SetActive(true);
+        }
         if (_selected)
         {
             return;
@@ -64,26 +68,32 @@ public class Selector : MonoBehaviour
         if (Input.GetButtonDown(_buttonName))
         {
             _selected = true;
-            _onSelect.Invoke();
+            _onSelect.Invoke(_selection);
             _audioSource.PlayOneShot(_selectSound);
         }
     }
 
     private void SwitchRight()
     {
-        _selections[_selection].gameObject.SetActive(false);
+        if (_activationSync)
+        {
+            _selections[_selection].gameObject.SetActive(false);
+        }
         _selection = _selection + 1 == _selections.Length ? 0 : _selection + 1;
         _selector.position = _selections[_selection].position;
     }
     private void SwitchLeft()
     {
-        _selections[_selection].gameObject.SetActive(false);
+        if (_activationSync)
+        {
+            _selections[_selection].gameObject.SetActive(false);
+        }
         _selection = _selection - 1 == -1 ? _selections.Length - 1 : _selection - 1;
         _selector.position = _selections[_selection].position;
     }
     public void Unselect()
     {
         _selected = false;
-        _onDeselect.Invoke();
+        _onDeselect.Invoke(_selection);
     }
 }

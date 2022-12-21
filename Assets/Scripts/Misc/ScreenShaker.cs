@@ -12,7 +12,7 @@ public class ScreenShaker : MonoBehaviour
     [SerializeField] private bool _useYAxis;
     [SerializeField] private bool _useZAxis;
     [SerializeField] private bool _autoRun;
-    [SerializeField] private Camera _camera;
+    [SerializeField] private Transform _target;
 
     private bool _running;
     private float _endTime;
@@ -30,7 +30,7 @@ public class ScreenShaker : MonoBehaviour
     {
         _running = true;
         _endTime = Time.time + _duration;
-        _backupPosition = _camera.transform.position;
+        _backupPosition = _target.position;
     }
 
     private void Update()
@@ -41,10 +41,10 @@ public class ScreenShaker : MonoBehaviour
         }
         float progress = GetProgress();
         Vector3 motion = new Vector3(_useXAxis ? _horizontalShake.Evaluate(progress) : 0f, _useYAxis ? _verticalShake.Evaluate(progress) : 0f, _useZAxis ? _depthShake.Evaluate(progress) : 0f);
-        _camera.transform.Translate(motion, Space.Self);
+        _target.Translate(motion, Space.Self);
         if (Time.time > _endTime)
         {
-            _camera.transform.localPosition = _backupPosition;
+            _target.localPosition = _backupPosition;
             _running = false;
         }
     }

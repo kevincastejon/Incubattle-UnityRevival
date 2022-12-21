@@ -351,11 +351,11 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.25
-  _useXAxis: 0
-  _useYAxis: 0
+  _useXAxis: 1
+  _useYAxis: 1
   _useZAxis: 0
   _autoRun: 1
-  _camera: {fileID: 859405020}
+  _target: {fileID: 859405021}
 --- !u!4 &116886313
 Transform:
   m_ObjectHideFlags: 0
@@ -1151,8 +1151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebdd3c0a6b572e4986ba555559f62d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _text: {fileID: 297742839}
+  _audioSource: {fileID: 297742841}
   _delayBetweenChars: 0.01
   _delayBetweenMessages: 1.5
   _autoRun: 1
@@ -2060,6 +2060,7 @@ MonoBehaviour:
   _buttonName: Jump
   _moveSound: {fileID: 8300000, guid: bd2974b8d1fbfcc4ab7b2be0ee8b385f, type: 3}
   _selectSound: {fileID: 8300000, guid: 34fafd739224bc048b786515bc6fdbb8, type: 3}
+  _activationSync: 1
 --- !u!82 &719604668
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4542,6 +4543,7 @@ MonoBehaviour:
   _buttonName: JumpP2
   _moveSound: {fileID: 8300000, guid: bd2974b8d1fbfcc4ab7b2be0ee8b385f, type: 3}
   _selectSound: {fileID: 8300000, guid: 34fafd739224bc048b786515bc6fdbb8, type: 3}
+  _activationSync: 1
 --- !u!4 &1724433236
 Transform:
   m_ObjectHideFlags: 0
@@ -4753,6 +4755,7 @@ MonoBehaviour:
   _buttonName: Jump
   _moveSound: {fileID: 8300000, guid: bd2974b8d1fbfcc4ab7b2be0ee8b385f, type: 3}
   _selectSound: {fileID: 8300000, guid: 34fafd739224bc048b786515bc6fdbb8, type: 3}
+  _activationSync: 1
 --- !u!82 &1834167112
 AudioSource:
   m_ObjectHideFlags: 0

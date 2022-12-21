@@ -32,12 +32,12 @@ public class HitBox : MonoBehaviour
             else if (collider.CompareTag("CanBox"))
             {
                 _attackData.HitType = HitType.CAN;
-                _attackData.Damages = 2;
+                _attackData.Damages = 3;
             }
             else if (collider.CompareTag("GroundPoundBox"))
             {
                 _attackData.HitType = HitType.GROUNDPOUND;
-                _attackData.Damages = 4;
+                _attackData.Damages = 1;
             }
             else if (collider.CompareTag("SpecialBox"))
             {
