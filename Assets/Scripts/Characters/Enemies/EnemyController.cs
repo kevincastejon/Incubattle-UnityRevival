@@ -14,6 +14,9 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Référence à l'enfant contenant le corps du personnage")]
     private Transform _body;
     [SerializeField]
+    [Tooltip("Référence au SpawnDust")]
+    private Transform _spawnDust;
+    [SerializeField]
     [Tooltip("Référence à l'AttackBox")]
     private Collider2D _attackBox;
     [SerializeField]
@@ -267,6 +270,7 @@ public class EnemyController : MonoBehaviour
     {
         // On trouve une cible
         PickTarget();
+        _spawnDust.parent = null;
     }
 
     public void PickTarget()

@@ -43,7 +43,7 @@ public class EnemyWave : MonoBehaviour, ILevelEvent
     {
         // On note que la vague a demarré
         _isStarted = true;
-        // On active tous les ennemis de la vague
+        // On crée tous les ennemis de la vague
         for (int i = 0; i < _enemy1Count; i++) { Instantiate(_enemy1, GetRandomPosition(), Quaternion.identity, _enemiesContainer); }
         for (int i = 0; i < _enemy2Count; i++) { Instantiate(_enemy2, GetRandomPosition(), Quaternion.identity, _enemiesContainer); }
         for (int i = 0; i < _enemy3Count; i++) { Instantiate(_enemy3, GetRandomPosition(), Quaternion.identity, _enemiesContainer); }
@@ -69,24 +69,12 @@ public class EnemyWave : MonoBehaviour, ILevelEvent
             _onComplete.Invoke();
             //
             _isCompleted = true;
-            // On détruit l'objet Wave
-            //Destroy(gameObject);
         }
     }
-
-    //// Si la vague n'est pas démarrée et que le joueur pénètre la zone on démarre la vague
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (!_isStarted && collision.CompareTag("WaveDetector"))
-    //    {
-    //        StartWave();
-    //    }
-    //}
-
     private Vector2 GetRandomPosition()
     {
         bool left = Random.value > 0.5f;
-        Bounds bounds = _camera.GetCameraBoundsFromPosition(transform.position);
+        Bounds bounds = _camera.GetCameraBoundsFromPosition(_camera.transform.position);
         float h = left ? bounds.min.x : bounds.max.x;
         float v = Random.Range(0.5f , - 3.75f);
         return new Vector2(h, v);

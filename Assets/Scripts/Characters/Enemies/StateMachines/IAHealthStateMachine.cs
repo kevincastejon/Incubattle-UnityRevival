@@ -14,16 +14,18 @@ public class IAHealthStateMachine : MonoBehaviour
     private Animator _animator;
     private EnemyController _enemyController;
     private HitBox _hitbox;
-    private TimersController _timersController;
+    private SFXController _sfxController;
+    private VFXController _vfxController;
     private IACombatStateMachine _combatStateMachine;
     public IAHealthState CurrentState { get => _currentState; private set => _currentState = value; }
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _vfxController = GetComponentInChildren<VFXController>();
+        _sfxController = GetComponentInChildren<SFXController>();
         _enemyController = GetComponent<EnemyController>();
         _hitbox = GetComponentInChildren<HitBox>();
-        _timersController = GetComponentInChildren<TimersController>();
         _combatStateMachine = GetComponent<IACombatStateMachine>();
     }
     private void Start()
@@ -150,6 +152,20 @@ public class IAHealthStateMachine : MonoBehaviour
         _animator.SetBool("IsHurt", true);
         AttackData atk = _hitbox.GetHit();
         _enemyController.StartKnockBack(atk);
+        if (atk.AttackerType == AttackerType.PLAYER)
+        {
+            _vfxController.TriggerPunch(Physics2D.ClosestPoint(atk.AttackBox.transform.position, atk.HitBox));
+        }
+        if (atk.HitType == HitType.CAN)
+        {
+            // On démarre le SFX
+            _sfxController.TriggerThrowHit();
+        }
+        else
+        {
+            // On démarre le SFX
+            _sfxController.TriggerHurt();
+        }
     }
     private void OnUpdateHurt()
     {
@@ -172,6 +188,11 @@ public class IAHealthStateMachine : MonoBehaviour
 
     private void OnEnterDead()
     {
+        AttackData atk = _hitbox.GetHit();
+        if (atk.AttackerType == AttackerType.PLAYER)
+        {
+            _vfxController.TriggerPunch(Physics2D.ClosestPoint(atk.AttackBox.transform.position, atk.HitBox));
+        }
         _animator.SetBool("IsDead", true);
         _enemyController.StartVanishing();
     }

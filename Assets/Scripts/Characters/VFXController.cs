@@ -11,7 +11,9 @@ public class VFXController : MonoBehaviour
     [SerializeField] private Animator _runRight;
     [SerializeField] private Animator _land;
     [SerializeField] private Animator _throw;
-    
+    [SerializeField] private GameObject _punchPrefab;
+    [SerializeField] private Transform _punchZAxisSorterTranform;
+
     private Vector3 _groundPoundPosBackup;
     private Vector3 _specialPosBackup;
     private Vector3 _jumpPosBackup;
@@ -22,13 +24,34 @@ public class VFXController : MonoBehaviour
 
     private void Start()
     {
-        _groundPoundPosBackup = _groundPound.transform.localPosition;
-        _specialPosBackup = _special.transform.localPosition;
-        _jumpPosBackup = _jump.transform.localPosition;
-        _runLeftPosBackup = _runLeft.transform.localPosition;
-        _runRightPosBackup = _runRight.transform.localPosition;
-        _landPosBackup = _land.transform.localPosition;
-        _throwPosBackup = _throw.transform.localPosition;
+        if (_groundPound)
+        {
+            _groundPoundPosBackup = _groundPound.transform.localPosition;
+        }
+        if (_special)
+        {
+            _specialPosBackup = _special.transform.localPosition;
+        }
+        if (_jump)
+        {
+            _jumpPosBackup = _jump.transform.localPosition;
+        }
+        if (_runLeft)
+        {
+            _runLeftPosBackup = _runLeft.transform.localPosition;
+        }
+        if (_runRight)
+        {
+            _runRightPosBackup = _runRight.transform.localPosition;
+        }
+        if (_land)
+        {
+            _landPosBackup = _land.transform.localPosition;
+        }
+        if (_throw)
+        {
+            _throwPosBackup = _throw.transform.localPosition;
+        }
     }
 
     public void TriggerSlam()
@@ -71,14 +94,18 @@ public class VFXController : MonoBehaviour
     {
         _land.transform.parent = transform.parent;
         _land.transform.localPosition = _landPosBackup;
-        _land.SetTrigger("Show");        
+        _land.SetTrigger("Show");
         _land.transform.parent = null;
     }
     public void TriggerThrow()
     {
         _throw.transform.parent = transform.parent;
         _throw.transform.localPosition = _throwPosBackup;
-        _throw.SetTrigger("Show");        
+        _throw.SetTrigger("Show");
         _throw.transform.parent = null;
+    }
+    public void TriggerPunch(Vector3 position)
+    {
+        Instantiate(_punchPrefab, position, Quaternion.identity).GetComponent<ZAxisSorter>().MainTransform = _punchZAxisSorterTranform;
     }
 }

@@ -26,9 +26,9 @@ TagManager:
   - Throwables
   - BlockPlayersOnly
   - StageDetector
-  - 
-  - 
-  - 
+  - Breakables
+  - Pieces
+  - Killzone
   - 
   - 
   - 

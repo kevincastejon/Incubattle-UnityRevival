@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZAxisSorter : MonoBehaviour
 {
     [SerializeField] private Transform _mainTransform = default;        // Référence au Transform du GameObject parent principal
+    [SerializeField] private bool _forceFrontRef;
 
     private Transform _transform;                                       // Référence au Transform de l'enfant (Sprite)
 
@@ -17,10 +18,14 @@ public class ZAxisSorter : MonoBehaviour
 
     private void Update()
     {
+        if (_mainTransform == null)
+        {
+            return;
+        }
         // On récupère la position du transform
         Vector3 pos = _transform.position;
         // On définit son Z comme étant égal au Y du mainTransform
-        pos.z = _mainTransform.position.y;
+        pos.z = _mainTransform.position.y - (_forceFrontRef ? 0.001f : 0f);
         // On redéfinit la position avec le nouveau Z
         _transform.position = pos;
     }

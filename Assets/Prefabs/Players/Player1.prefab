@@ -538,6 +538,7 @@ MonoBehaviour:
   _runRight: {fileID: 6276207509985521743}
   _land: {fileID: 1640857612403671595}
   _throw: {fileID: 6189728398921162127}
+  _punchPrefab: {fileID: 2955223878483003605, guid: cdb3ac83b243085458fa36f178713339, type: 3}
 --- !u!1 &2778076765833894126
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 2778076766179237582}
-  _shadow: {fileID: 2186947020172158819}
   _attackBox: {fileID: 2778076767934257601}
   _hitBox: {fileID: 2778076767886644680}
   _groundPoundBox: {fileID: 5974606407474180727}
