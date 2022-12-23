@@ -191,7 +191,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private PlayerInput _playerInput;
-    private Camera _camera;
     private VFXController _vfxController;
     private SFXController _sfxController;
 
@@ -210,11 +209,11 @@ public class PlayerController : MonoBehaviour
     private float _landingEndTime;                              // heure de fin d'atterissage
 
     // Variables d'attaques
-    private Vector2 _lastMoveDirection = Vector2.right;            // direction du dernier déplacement
-    private Vector2 _knockBackDirection;                                            // direction du knockBack en cours
-    private HitType _hitType;                                                       // type du knockBack en cours
-    private int _combo;                                                             // combo actuel
-    private Throwable _throwable;                                                   // reference à la cannette portée
+    private Vector2 _lastMoveDirection = Vector2.right;         // direction du dernier déplacement
+    private Vector2 _knockBackDirection;                        // direction du knockBack en cours
+    private HitType _hitType;                                   // type du knockBack en cours
+    private int _combo;                                         // combo actuel
+    private Throwable _throwable;                               // reference à la cannette portée
 
     // Propriétés
     public int HealthPoints { get => _healthPoints.Value; }
@@ -246,8 +245,6 @@ public class PlayerController : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
         _vfxController = GetComponentInChildren<VFXController>();
         _sfxController = GetComponentInChildren<SFXController>();
-
-        _camera = Camera.main;
     }
     private void Start()
     {
@@ -411,7 +408,7 @@ public class PlayerController : MonoBehaviour
         // On désactive la SpecialBox
         //_specialBox.gameObject.SetActive(false);
         // On réinitialise la stamina
-        //_stamina.Value = 0;
+        _stamina.Value = 0;
     }
 
     public void StartAttack()

@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 4442703266046613574}
   - component: {fileID: 4442703266046613575}
   - component: {fileID: 1393732317316721692}
-  m_Layer: 0
+  - component: {fileID: 1647683502764368993}
+  m_Layer: 16
   m_Name: BlueCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 2204796158598661281}
+  _shadow: {fileID: 7480189560359810249}
   _healthPoints: {fileID: 11400000, guid: 6b67d3b574b3277418ba9c774703a76b, type: 2}
   _maxHealthPoints: {fileID: 11400000, guid: 60267f92ec1e6ad458b5cc1de8be7ad9, type: 2}
   _score: {fileID: 11400000, guid: c10896fabbab6c140b16a2389f73a294, type: 2}
@@ -161,6 +163,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1647683502764368993
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442703266046613577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0014541149, y: 0.09060809}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.31072265, y: 0.14828366}
+  m_EdgeRadius: 0
 --- !u!1 &7480189560359810249
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +249,7 @@ GameObject:
   - component: {fileID: 7034608251688847153}
   - component: {fileID: 5780575956126075590}
   - component: {fileID: 1160127025601957855}
+  - component: {fileID: 202185768386782276}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -322,7 +351,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9090718653583537259}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -355,3 +384,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 4442703266046613574}
   _forceFrontRef: 0
+--- !u!114 &202185768386782276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9090718653583537259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643793a244c9a6446acce7add721bfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorStages:
+  - _duration: 0.5
+    _color: {r: 1, g: 1, b: 1, a: 1}
+  - _duration: 1
+    _color: {r: 1, g: 1, b: 1, a: 0}
+  _onColorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7034608251688847153}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_color
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentColor: {r: 1, g: 1, b: 1, a: 1}
+  _cycleCount: 1
+  _autoRun: 0
+  _stopAtNextCycle: 0

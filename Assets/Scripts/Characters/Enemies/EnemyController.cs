@@ -212,6 +212,7 @@ public class EnemyController : MonoBehaviour
     private Animator _animator;
     private PlayerController _target;
     private Collision2DEvent _collDetector;
+    private ScreenShaker _screenShaker;
 
     // Variables de timer
     private float _jumpEndTime;                                 // heure de fin de saut
@@ -265,6 +266,7 @@ public class EnemyController : MonoBehaviour
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _collDetector = GetComponent<Collision2DEvent>();
+        _screenShaker = GameObject.FindGameObjectWithTag("ScreenShaker").GetComponent<ScreenShaker>();
     }
     private void Start()
     {
@@ -386,9 +388,17 @@ public class EnemyController : MonoBehaviour
     public void DoSlaming()
     {
         // On calcule la progression du slam
-        float slamProgress = (_landingDuration - (_landingEndTime - Time.time)) / _landingDuration;
+        float slamProgress = (_slamDuration - (_slamEndTime - Time.time)) / _slamDuration;
         // On définit le paramètre d'animator concernant la progression du slam
         _animator.SetFloat("SlamingProgress", slamProgress);
+    }
+    public void SlamShake()
+    {
+        if (Mathf.Approximately(0f, _animator.GetFloat("SlamingProgress")))
+        {
+            return;
+        }
+        _screenShaker.Shake();        
     }
     public void EndSlaming()
     {

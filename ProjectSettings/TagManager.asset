@@ -12,6 +12,8 @@ TagManager:
   - GroundPoundVFX
   - CanBox
   - StageDetector
+  - ScoreLabel
+  - ScreenShaker
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - Breakables
   - Pieces
   - Killzone
-  - 
+  - Collectibles
   - 
   - 
   - 

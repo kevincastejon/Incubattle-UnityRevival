@@ -116,13 +116,6 @@ public class LevelStage : MonoBehaviour
             _onCompleted.Invoke();
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (!_isStarted && collision.CompareTag("StageDetector"))
-    //    {
-    //        Init();
-    //    }
-    //}
     public void Init()
     {
         // On conserve une reference vers les contraintes par défaut de la camera

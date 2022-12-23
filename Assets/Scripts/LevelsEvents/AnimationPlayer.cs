@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimationPlayer : MonoBehaviour, ILevelEvent
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private string _triggerParameter;
+    [SerializeField] private UnityEvent _onAnimationEnded;
     private bool _animationEnded;
     public void Init()
     {
@@ -20,5 +22,6 @@ public class AnimationPlayer : MonoBehaviour, ILevelEvent
     public void AnimationOver()
     {
         _animationEnded = true;
+        _onAnimationEnded.Invoke();
     }
 }

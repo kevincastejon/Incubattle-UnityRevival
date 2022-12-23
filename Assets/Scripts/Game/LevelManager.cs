@@ -15,10 +15,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform _p1Starter;
     [SerializeField] private Transform _p2Starter;
     [SerializeField] private string[] _levels;
+    private float _elapsedTime;
     private PlayerController _p1;
     private PlayerController _p2;
 
     private CameraFollow _cameraFollow;
+
+    public float ElapsedTime { get => _elapsedTime; }
 
     private void Awake()
     {
@@ -27,6 +30,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        _elapsedTime += Time.deltaTime;
         if ((!_isCoop.Value && _p1 == null) || (_isCoop.Value && _p1 == null && _p2 == null))
         {
             SceneManager.LoadScene("GameOver");

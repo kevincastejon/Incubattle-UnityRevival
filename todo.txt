@@ -1,4 +1,0 @@
-- HUD COOP
-- boss slam spawning
-- level victory
-- game over
