@@ -39,22 +39,27 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         _p1 = Instantiate(_p1Prefab.Value, _p1Starter.position, Quaternion.identity).GetComponent<PlayerController>();
-        _cameraFollow.Target1 = _p1.transform;
+        if (_cameraFollow)
+        {
+            _cameraFollow.Target1 = _p1.transform;
+        }
         if (_isCoop.Value)
         {
             _p2 = Instantiate(_p2Prefab.Value, _p2Starter.position, Quaternion.identity).GetComponent<PlayerController>();
-            _cameraFollow.Target2 = _p2.transform;
-            PlayerInput p2Input = _cameraFollow.Target2.GetComponent<PlayerInput>();
+            if (_cameraFollow)
+            {
+                _cameraFollow.Target2 = _p2.transform;
+            }
+            PlayerInput p2Input = _p2.GetComponent<PlayerInput>();
             p2Input.HorizontalAxisName += "P2";
             p2Input.VerticalAxisName += "P2";
             p2Input.JumpButtonName += "P2";
             p2Input.SprintButtonName += "P2";
             p2Input.AttackButtonName += "P2";
             p2Input.SpecialButtonName += "P2";
-            PlayerController p2Controller = _cameraFollow.Target2.GetComponent<PlayerController>();
-            p2Controller.HealthPointsSO = _p2HealthSO;
-            p2Controller.StaminaSO = _p2StaminaSO;
-            p2Controller.LifesSO = _p2LifesSO;
+            _p2.HealthPointsSO = _p2HealthSO;
+            _p2.StaminaSO = _p2StaminaSO;
+            _p2.LifesSO = _p2LifesSO;
         }
     }
 

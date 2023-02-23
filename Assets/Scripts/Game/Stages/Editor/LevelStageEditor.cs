@@ -115,6 +115,7 @@ public class LevelStageEditor : Editor
             EditorGUILayout.PropertyField(_onCompleted);
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
+        EditorGUILayout.LabelField("Sequences");
         _eventsEditorList.DoLayoutList();
 
         serializedObject.ApplyModifiedProperties();

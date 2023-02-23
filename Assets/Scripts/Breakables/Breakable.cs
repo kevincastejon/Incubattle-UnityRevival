@@ -12,6 +12,12 @@ public class Breakable : MonoBehaviour
     [SerializeField] private bool _playBreakSound = true;
     [SerializeField] private AudioClip _hitSound;
     [SerializeField] private AudioClip _breakSound;
+    [Min(0)]
+    [SerializeField]
+    [Tooltip("Nombre de loots")]
+    private int _lootCount;
+    [Tooltip("Prefabs de loots")]
+    [SerializeField] private Collectible[] _lootsPool;
     [SerializeField] private UnityEvent _onHit;
     [SerializeField] private UnityEvent _onBreak;
     [SerializeField] private UnityEvent _onHitSound;
@@ -68,6 +74,12 @@ public class Breakable : MonoBehaviour
                 _animator.SetTrigger(_hitTrigger);
             }
             _onHit.Invoke();
+        }
+        
+        if(_health % 3 == 0)
+        {
+            Instantiate(_lootsPool[Random.Range(0, _lootsPool.Length)], transform.position, Quaternion.identity);
+            _lootCount--;
         }
     }
     private void Break()

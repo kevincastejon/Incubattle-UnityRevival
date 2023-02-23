@@ -111,17 +111,23 @@ public class LevelStage : MonoBehaviour
         {
             // On ré-assigne les contraintes originales de la camera
             _stageWallsContainer.gameObject.SetActive(false);
-            _camera.Constraint = _constraintBackup;
+            if (_camera)
+            {
+                _camera.Constraint = _constraintBackup;
+            }
             _isCompleted = true;
             _onCompleted.Invoke();
         }
     }
     public void Init()
     {
-        // On conserve une reference vers les contraintes par défaut de la camera
-        _constraintBackup = _camera.Constraint;
-        // On change les contraintes de la camera en lui assignant les contraintes du stage
-        _camera.Constraint = new Bounds(transform.position, _constraintArea);
+        if (_camera)
+        {
+            // On conserve une reference vers les contraintes par défaut de la camera
+            _constraintBackup = _camera.Constraint;
+            // On change les contraintes de la camera en lui assignant les contraintes du stage
+            _camera.Constraint = new Bounds(transform.position, _constraintArea);
+        }
         // On active les murs
         _stageWallsContainer.gameObject.SetActive(true);
         _isStarted = true;

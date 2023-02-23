@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class EnemyWave : MonoBehaviour, ILevelEvent
 {
-    
+
     [HideOnPrefab(true)] [SerializeField] private Transform _enemiesContainer;
     [HideOnPrefab(true)] [SerializeField] private GameObject _enemy1;
     [HideOnPrefab(true)] [SerializeField] private GameObject _enemy2;
@@ -27,17 +27,11 @@ public class EnemyWave : MonoBehaviour, ILevelEvent
     [SerializeField] private int _dp4Count;
     [SerializeField] private int _dp5Count;
     [SerializeField] private int _bossCount;
+    [SerializeField] private Collider2D _spawningArea;
     [SerializeField] private UnityEvent _onComplete;
 
-    
-    private CameraFollow _camera;
     private bool _isStarted;
     private bool _isCompleted;
-
-    private void Awake()
-    {
-        _camera = FindObjectOfType<CameraFollow>();
-    }
 
     public void Init()
     {
@@ -59,7 +53,7 @@ public class EnemyWave : MonoBehaviour, ILevelEvent
     {
         return _isCompleted;
     }
-    
+
     private void Update()
     {
         // Si tous les ennemis sont morts
@@ -73,10 +67,13 @@ public class EnemyWave : MonoBehaviour, ILevelEvent
     }
     private Vector2 GetRandomPosition()
     {
-        bool left = Random.value > 0.5f;
-        Bounds bounds = _camera.GetCameraBoundsFromPosition(_camera.transform.position);
-        float h = left ? bounds.min.x : bounds.max.x;
-        float v = Random.Range(0.5f , - 3.75f);
-        return new Vector2(h, v);
+        while (true)
+        {
+            Vector2 random = new Vector2(Random.Range(_spawningArea.bounds.min.x, _spawningArea.bounds.max.x), Random.Range(_spawningArea.bounds.min.y, _spawningArea.bounds.max.y));
+            if (_spawningArea.OverlapPoint(random))
+            {
+                return random;
+            }
+        }
     }
 }

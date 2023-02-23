@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class ZAxisSorter : MonoBehaviour
 {
     [SerializeField] private Transform _mainTransform = default;        // Référence au Transform du GameObject parent principal
     [SerializeField] private bool _forceFrontRef;
 
-    private Transform _transform;                                       // Référence au Transform de l'enfant (Sprite)
-
     public Transform MainTransform { get => _mainTransform; set => _mainTransform = value; }
 
-    private void Awake()
-    {
-        _transform = GetComponent<Transform>();
-    }
 
     private void Update()
     {
@@ -23,10 +18,10 @@ public class ZAxisSorter : MonoBehaviour
             return;
         }
         // On récupère la position du transform
-        Vector3 pos = _transform.position;
+        Vector3 pos = transform.position;
         // On définit son Z comme étant égal au Y du mainTransform
         pos.z = _mainTransform.position.y - (_forceFrontRef ? 0.001f : 0f);
         // On redéfinit la position avec le nouveau Z
-        _transform.position = pos;
+        transform.position = pos;
     }
 }

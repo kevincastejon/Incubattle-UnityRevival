@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(EnemyWave))]
+[CanEditMultipleObjects]
 public class EnemyWaveEditor : Editor
 {
     private SerializedProperty _enemiesContainer;
@@ -25,6 +26,7 @@ public class EnemyWaveEditor : Editor
     private SerializedProperty _dp4Count;
     private SerializedProperty _dp5Count;
     private SerializedProperty _bossCount;
+    private SerializedProperty _spawningArea;
     private SerializedProperty _onComplete;
 
     private EnemyWave _script;
@@ -50,6 +52,7 @@ public class EnemyWaveEditor : Editor
         _dp4Count = serializedObject.FindProperty("_dp4Count");
         _dp5Count = serializedObject.FindProperty("_dp5Count");
         _bossCount = serializedObject.FindProperty("_bossCount");
+        _spawningArea = serializedObject.FindProperty("_spawningArea");
         _onComplete = serializedObject.FindProperty("_onComplete");
 
         _script = (EnemyWave)target;
@@ -58,27 +61,31 @@ public class EnemyWaveEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+        if (!serializedObject.isEditingMultipleObjects)
+        {
+            EditorGUILayout.PropertyField(_enemiesContainer);
+            EditorGUILayout.PropertyField(_enemy1);
+            EditorGUILayout.PropertyField(_enemy2);
+            EditorGUILayout.PropertyField(_enemy3);
+            EditorGUILayout.PropertyField(_dp1);
+            EditorGUILayout.PropertyField(_dp2);
+            EditorGUILayout.PropertyField(_dp3);
+            EditorGUILayout.PropertyField(_dp4);
+            EditorGUILayout.PropertyField(_dp5);
+            EditorGUILayout.PropertyField(_boss);
 
-        EditorGUILayout.PropertyField(_enemiesContainer);
-        EditorGUILayout.PropertyField(_enemy1);
-        EditorGUILayout.PropertyField(_enemy2);
-        EditorGUILayout.PropertyField(_enemy3);
-        EditorGUILayout.PropertyField(_dp1);
-        EditorGUILayout.PropertyField(_dp2);
-        EditorGUILayout.PropertyField(_dp3);
-        EditorGUILayout.PropertyField(_dp4);
-        EditorGUILayout.PropertyField(_dp5);
-        EditorGUILayout.PropertyField(_boss);
+            DrawPrefabCountField(_enemy1, _enemy1Count);
+            DrawPrefabCountField(_enemy2, _enemy2Count);
+            DrawPrefabCountField(_enemy3, _enemy3Count);
+            DrawPrefabCountField(_dp1, _dp1Count);
+            DrawPrefabCountField(_dp2, _dp2Count);
+            DrawPrefabCountField(_dp3, _dp3Count);
+            DrawPrefabCountField(_dp4, _dp4Count);
+            DrawPrefabCountField(_dp5, _dp5Count);
+            DrawPrefabCountField(_boss, _bossCount);
+        }
 
-        DrawPrefabCountField(_enemy1, _enemy1Count);
-        DrawPrefabCountField(_enemy2, _enemy2Count);
-        DrawPrefabCountField(_enemy3, _enemy3Count);
-        DrawPrefabCountField(_dp1, _dp1Count);
-        DrawPrefabCountField(_dp2, _dp2Count);
-        DrawPrefabCountField(_dp3, _dp3Count);
-        DrawPrefabCountField(_dp4, _dp4Count);
-        DrawPrefabCountField(_dp5, _dp5Count);
-        DrawPrefabCountField(_boss, _bossCount);
+        EditorGUILayout.PropertyField(_spawningArea);
         EditorGUILayout.PropertyField(_onComplete);
 
         serializedObject.ApplyModifiedProperties();
