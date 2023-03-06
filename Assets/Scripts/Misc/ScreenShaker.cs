@@ -28,6 +28,10 @@ public class ScreenShaker : MonoBehaviour
 
     public void Shake()
     {
+        if (_running)
+        {
+            return;
+        }
         _running = true;
         _endTime = Time.time + _duration;
         _backupPosition = _target.position;
@@ -42,7 +46,7 @@ public class ScreenShaker : MonoBehaviour
         float progress = GetProgress();
         Vector3 motion = new Vector3(_useXAxis ? _horizontalShake.Evaluate(progress) : 0f, _useYAxis ? _verticalShake.Evaluate(progress) : 0f, _useZAxis ? _depthShake.Evaluate(progress) : 0f);
         _target.Translate(motion, Space.Self);
-        if (Time.time > _endTime)
+        if (Time.time >= _endTime)
         {
             _target.localPosition = _backupPosition;
             _running = false;

@@ -5,7 +5,11 @@ using UnityEngine.Events;
 public class LevelStage : MonoBehaviour
 {
     [SerializeField] private Vector2 _triggerArea;
-    [SerializeField] private Vector2 _constraintArea;
+    [SerializeField] private Vector2 _triggerAreaOffset;
+    [SerializeField] private Vector2 _camConstraintArea;
+    [SerializeField] private Vector2 _camConstraintAreaOffset;
+    [SerializeField] private Vector2 _enemiesConstraintArea;
+    [SerializeField] private Vector2 _enemiesConstraintAreaOffset;
     [SerializeField] private LevelEvent[] _events;
     [SerializeField] private UnityEvent _onStarted;
     [SerializeField] private UnityEvent _onCompleted;
@@ -61,14 +65,14 @@ public class LevelStage : MonoBehaviour
     public void TransformWalls()
     {
         GenerateWalls();
-        _stageWallL.size = new Vector2(1f, _constraintArea.y);
-        _stageWallR.size = new Vector2(1f, _constraintArea.y);
-        _stageWallD.size = new Vector2(_constraintArea.x, 1f);
-        _stageWallU.size = new Vector2(_constraintArea.x, 1f);
-        _stageWallL.transform.position = transform.position - new Vector3((_constraintArea.x + 1f) * 0.5f, 0f, 0f);
-        _stageWallR.transform.position = transform.position + new Vector3((_constraintArea.x + 1f) * 0.5f, 0f, 0f);
-        _stageWallD.transform.position = transform.position - new Vector3(0f, (_constraintArea.y + 1f) * 0.5f, 0f);
-        _stageWallU.transform.position = transform.position + new Vector3(0f, (_constraintArea.y + 1f) * 0.5f, 0f);
+        _stageWallL.size = new Vector2(1f, _enemiesConstraintArea.y);
+        _stageWallR.size = new Vector2(1f, _enemiesConstraintArea.y);
+        _stageWallD.size = new Vector2(_enemiesConstraintArea.x, 1f);
+        _stageWallU.size = new Vector2(_enemiesConstraintArea.x, 1f);
+        _stageWallL.transform.position = transform.position + (Vector3)_enemiesConstraintAreaOffset - new Vector3((_enemiesConstraintArea.x + 1f) * 0.5f, 0f, 0f);
+        _stageWallR.transform.position = transform.position + (Vector3)_enemiesConstraintAreaOffset + new Vector3(( _enemiesConstraintArea.x + 1f) * 0.5f, 0f, 0f);
+        _stageWallD.transform.position = transform.position + (Vector3)_enemiesConstraintAreaOffset - new Vector3(0f, (_enemiesConstraintArea.y + 1f) * 0.5f, 0f);
+        _stageWallU.transform.position = transform.position + (Vector3)_enemiesConstraintAreaOffset + new Vector3(0f, (_enemiesConstraintArea.y + 1f) * 0.5f, 0f);
     }
 
     private void Awake()
@@ -90,7 +94,7 @@ public class LevelStage : MonoBehaviour
     }
     public void Update()
     {
-        if (!_isStarted && Physics2D.OverlapArea((Vector2)transform.position - _triggerArea * 0.5f, (Vector2)transform.position + _triggerArea * 0.5f, LayerMask.GetMask(new string[] { "StageDetector" })))
+        if (!_isStarted && Physics2D.OverlapArea((Vector2)transform.position + _triggerAreaOffset - _triggerArea * 0.5f, (Vector2)transform.position + _triggerAreaOffset + _triggerArea * 0.5f, LayerMask.GetMask(new string[] { "StageDetector" })))
         {
             Init();
         }
@@ -126,7 +130,7 @@ public class LevelStage : MonoBehaviour
             // On conserve une reference vers les contraintes par défaut de la camera
             _constraintBackup = _camera.Constraint;
             // On change les contraintes de la camera en lui assignant les contraintes du stage
-            _camera.Constraint = new Bounds(transform.position, _constraintArea);
+            _camera.Constraint = new Bounds((Vector2)transform.position + _camConstraintAreaOffset, _camConstraintArea);
         }
         // On active les murs
         _stageWallsContainer.gameObject.SetActive(true);

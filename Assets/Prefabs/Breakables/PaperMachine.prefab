@@ -240,7 +240,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 1
 --- !u!95 &4579661773688991214
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -257,7 +257,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &4579661773688991219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +277,8 @@ MonoBehaviour:
   _playBreakSound: 0
   _hitSound: {fileID: 8300000, guid: 399d9cc11368b3945894efc17b7b8e57, type: 3}
   _breakSound: {fileID: 0}
+  _lootCount: 0
+  _lootsPool: []
   _onHit:
     m_PersistentCalls:
       m_Calls: []

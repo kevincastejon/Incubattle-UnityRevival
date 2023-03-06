@@ -9,7 +9,11 @@ using System;
 public class LevelStageEditor : Editor
 {
     private SerializedProperty _triggerArea;
-    private SerializedProperty _constraintArea;
+    private SerializedProperty _triggerAreaOffset;
+    private SerializedProperty _camConstraintArea;
+    private SerializedProperty _camConstraintAreaOffset;
+    private SerializedProperty _enemiesConstraintArea;
+    private SerializedProperty _enemiesConstraintAreaOffset;
     private SerializedProperty _events;
     private ReorderableList _eventsEditorList;
     private SerializedProperty _onStarted;
@@ -18,16 +22,22 @@ public class LevelStageEditor : Editor
     private LevelStage _object;
 
     private bool _eventExpanded;
-    private bool _constraintFocus;
+    private bool _camConstraintFocus;
+    private bool _enemiesConstraintFocus;
     private bool _triggerFocus;
 
-    private List<string> _triggerControlNames = new List<string> { "LevelStageTriggerAreaFieldLabel", "LevelStageTriggerAreaFieldWidth", "LevelStageTriggerAreaFieldHeight" };
-    private List<string> _constraintControlNames = new List<string> { "LevelStageConstraintAreaFieldLabel", "LevelStageConstraintAreaFieldWidth", "LevelStageConstraintAreaFieldHeight" };
+    private List<string> _triggerControlNames = new List<string> { "LevelStageTriggerAreaFieldLabel", "LevelStageTriggerAreaFieldWidth", "LevelStageTriggerAreaFieldHeight", "LevelStageTriggerAreaOffsetFieldWidth", "LevelStageTriggerAreaOffsetFieldHeight" };
+    private List<string> _camConstraintControlNames = new List<string> { "LevelStageConstraintCamAreaFieldLabel", "LevelStageConstraintCamAreaFieldWidth", "LevelStageConstraintCamAreaFieldHeight", "LevelStageConstraintCamAreaOffsetFieldWidth", "LevelStageConstraintCamAreaOffsetFieldHeight" };
+    private List<string> _enemiesConstraintControlNames = new List<string> { "LevelStageConstraintEnemiesAreaFieldLabel", "LevelStageConstraintEnemiesAreaFieldWidth", "LevelStageConstraintEnemiesAreaFieldHeight", "LevelStageConstraintEnemiesAreaOffsetFieldWidth", "LevelStageConstraintEnemiesAreaOffsetFieldHeight" };
 
     private void OnEnable()
     {
         _triggerArea = serializedObject.FindProperty("_triggerArea");
-        _constraintArea = serializedObject.FindProperty("_constraintArea");
+        _triggerAreaOffset = serializedObject.FindProperty("_triggerAreaOffset");
+        _camConstraintArea = serializedObject.FindProperty("_camConstraintArea");
+        _camConstraintAreaOffset = serializedObject.FindProperty("_camConstraintAreaOffset");
+        _enemiesConstraintArea = serializedObject.FindProperty("_enemiesConstraintArea");
+        _enemiesConstraintAreaOffset = serializedObject.FindProperty("_enemiesConstraintAreaOffset");
         _events = serializedObject.FindProperty("_events");
         _eventsEditorList = new ReorderableList(serializedObject, _events, true, false, true, true);
         _eventsEditorList.drawHeaderCallback = EventsDrawHeaderCallback;
@@ -64,30 +74,37 @@ public class LevelStageEditor : Editor
     {
         Color innerTriggerColor = new Color(0.5f, 1f, 0f, 0f);
         Color borderTriggerColor = new Color(0.5f, 1f, 0f, 1f);
-        Color innerConstraintColor = new Color(0f, 0.5f, 1f, 0f);
-        Color borderConstraintColor = new Color(0f, 0.5f, 1f, 1f);
+        Color camInnerConstraintColor = new Color(0f, 0.5f, 1f, 0f);
+        Color camBorderConstraintColor = new Color(0f, 0.5f, 1f, 1f);
+        Color enemiesInnerConstraintColor = new Color(0.5f, 0f, 1f, 0f);
+        Color enemiesBorderConstraintColor = new Color(0.5f, 0f, 1f, 1f);
         if (_triggerFocus)
         {
             innerTriggerColor = new Color(0.5f, 1f, 0f, 0.25f);
             borderTriggerColor = new Color(0f, 0f, 0f, 1f);
         }
-        if (_constraintFocus)
+        if (_camConstraintFocus)
         {
-            innerConstraintColor = new Color(0f, 0.5f, 1f, 0.25f);
-            borderConstraintColor = new Color(0f, 0f, 0f, 1f);
+            camInnerConstraintColor = new Color(0f, 0.5f, 1f, 0.25f);
+            camBorderConstraintColor = new Color(0f, 0f, 0f, 1f);
         }
-        Handles.DrawSolidRectangleWithOutline(new Rect(_object.transform.position.x - _constraintArea.vector2Value.x * 0.5f, _object.transform.position.y - _constraintArea.vector2Value.y * 0.5f, _constraintArea.vector2Value.x, _constraintArea.vector2Value.y), innerConstraintColor, borderConstraintColor);
-        Handles.DrawSolidRectangleWithOutline(new Rect(_object.transform.position.x - _triggerArea.vector2Value.x * 0.5f, _object.transform.position.y - _triggerArea.vector2Value.y * 0.5f, _triggerArea.vector2Value.x, _triggerArea.vector2Value.y), innerTriggerColor, borderTriggerColor);
+        if (_enemiesConstraintFocus)
+        {
+            enemiesInnerConstraintColor = new Color(0.5f, 0f, 1f, 0.25f);
+            enemiesBorderConstraintColor = new Color(0.5f, 0f, 1f, 1f);
+        }
+        Handles.DrawSolidRectangleWithOutline(new Rect(_camConstraintAreaOffset.vector2Value.x + _object.transform.position.x - _camConstraintArea.vector2Value.x * 0.5f, _camConstraintAreaOffset.vector2Value.y + _object.transform.position.y - _camConstraintArea.vector2Value.y * 0.5f, _camConstraintArea.vector2Value.x, _camConstraintArea.vector2Value.y), camInnerConstraintColor, camBorderConstraintColor);
+        Handles.DrawSolidRectangleWithOutline(new Rect(_enemiesConstraintAreaOffset.vector2Value.x + _object.transform.position.x - _enemiesConstraintArea.vector2Value.x * 0.5f, _enemiesConstraintAreaOffset.vector2Value.y + _object.transform.position.y - _enemiesConstraintArea.vector2Value.y * 0.5f, _enemiesConstraintArea.vector2Value.x, _enemiesConstraintArea.vector2Value.y), enemiesInnerConstraintColor, enemiesBorderConstraintColor);
+        Handles.DrawSolidRectangleWithOutline(new Rect(_triggerAreaOffset.vector2Value.x + _object.transform.position.x - _triggerArea.vector2Value.x * 0.5f, _triggerAreaOffset.vector2Value.y + _object.transform.position.y - _triggerArea.vector2Value.y * 0.5f, _triggerArea.vector2Value.x, _triggerArea.vector2Value.y), innerTriggerColor, borderTriggerColor);
     }
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
-        EditorGUILayout.BeginHorizontal();
         float labelWidthBkp = EditorGUIUtility.labelWidth;
         EditorGUIUtility.labelWidth = 50f;
-        GUI.SetNextControlName("LevelStageTriggerAreaFieldLabel");
-        EditorGUILayout.LabelField(new GUIContent("Trigger area", "The area that will trigger the stage"));
+        EditorGUILayout.LabelField(new GUIContent("Trigger area", "The area that will trigger the stage"), EditorStyles.boldLabel);
         EditorGUIUtility.labelWidth = 40f;
+        EditorGUILayout.BeginHorizontal();
         GUI.SetNextControlName("LevelStageTriggerAreaFieldWidth");
         float x = EditorGUILayout.FloatField("Width", _triggerArea.vector2Value.x);
         GUI.SetNextControlName("LevelStageTriggerAreaFieldHeight");
@@ -95,17 +112,48 @@ public class LevelStageEditor : Editor
         _triggerArea.vector2Value = new Vector2(x, y);
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.BeginHorizontal();
+        GUI.SetNextControlName("LevelStageTriggerAreaOffsetFieldWidth");
+        float offsetX = EditorGUILayout.FloatField("Offset X", _triggerAreaOffset.vector2Value.x);
+        GUI.SetNextControlName("LevelStageTriggerAreaOffsetFieldHeight");
+        float offsetY = EditorGUILayout.FloatField("Offset Y", _triggerAreaOffset.vector2Value.y);
+        _triggerAreaOffset.vector2Value = new Vector2(offsetX, offsetY);
+        EditorGUILayout.EndHorizontal();
         EditorGUIUtility.labelWidth = 50f;
-        GUI.SetNextControlName("LevelStageConstraintAreaFieldLabel");
-        EditorGUILayout.LabelField(new GUIContent("Constraint area", "The area that will constraint the camera and enemies during the stage"));
+        EditorGUILayout.LabelField(new GUIContent("Cam Constraint Area", "The area that will constraint the camera during the stage"), EditorStyles.boldLabel);
+        EditorGUILayout.BeginHorizontal();
         EditorGUIUtility.labelWidth = 40f;
-        GUI.SetNextControlName("LevelStageConstraintAreaFieldWidth");
+        GUI.SetNextControlName("LevelStageConstraintCamAreaFieldWidth");
         EditorGUI.BeginChangeCheck();
-        x = EditorGUILayout.FloatField("Width", _constraintArea.vector2Value.x);
-        GUI.SetNextControlName("LevelStageConstraintAreaFieldHeight");
-        y = EditorGUILayout.FloatField("Height", _constraintArea.vector2Value.y);
-        bool hasConstraintChanged = EditorGUI.EndChangeCheck();
-        _constraintArea.vector2Value = new Vector2(x, y);
+        x = EditorGUILayout.FloatField("Width", _camConstraintArea.vector2Value.x);
+        GUI.SetNextControlName("LevelStageConstraintCamAreaFieldHeight");
+        y = EditorGUILayout.FloatField("Height", _camConstraintArea.vector2Value.y);
+        _camConstraintArea.vector2Value = new Vector2(x, y);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUI.SetNextControlName("LevelStageConstraintCamAreaOffsetFieldWidth");
+        offsetX = EditorGUILayout.FloatField("Offset X", _camConstraintAreaOffset.vector2Value.x);
+        GUI.SetNextControlName("LevelStageConstraintCamAreaOffsetFieldHeight");
+        offsetY = EditorGUILayout.FloatField("Offset Y", _camConstraintAreaOffset.vector2Value.y);
+        _camConstraintAreaOffset.vector2Value = new Vector2(offsetX, offsetY);
+        EditorGUILayout.EndHorizontal();
+        EditorGUI.BeginChangeCheck();
+        EditorGUIUtility.labelWidth = 50f;
+        EditorGUILayout.LabelField(new GUIContent("Enemies Constraint Area", "The area that will constraint the enemies during the stage"), EditorStyles.boldLabel);
+        EditorGUILayout.BeginHorizontal();
+        EditorGUIUtility.labelWidth = 40f;
+        GUI.SetNextControlName("LevelStageConstraintEnemiesAreaFieldWidth");
+        x = EditorGUILayout.FloatField("Width", _enemiesConstraintArea.vector2Value.x);
+        GUI.SetNextControlName("LevelStageConstraintEnemiesAreaFieldHeight");
+        y = EditorGUILayout.FloatField("Height", _enemiesConstraintArea.vector2Value.y);
+        _enemiesConstraintArea.vector2Value = new Vector2(x, y);
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.BeginHorizontal();
+        GUI.SetNextControlName("LevelStageConstraintEnemiesAreaOffsetFieldWidth");
+        offsetX = EditorGUILayout.FloatField("Offset X", _enemiesConstraintAreaOffset.vector2Value.x);
+        GUI.SetNextControlName("LevelStageConstraintEnemiesAreaOffsetFieldHeight");
+        offsetY = EditorGUILayout.FloatField("Offset Y", _enemiesConstraintAreaOffset.vector2Value.y);
+        _enemiesConstraintAreaOffset.vector2Value = new Vector2(offsetX, offsetY);
+        bool hasEnemiesConstraintChanged = EditorGUI.EndChangeCheck();
         EditorGUILayout.EndHorizontal();
         EditorGUIUtility.labelWidth = labelWidthBkp;
         _eventExpanded = EditorGUILayout.BeginFoldoutHeaderGroup(_eventExpanded, new GUIContent("Events"));
@@ -119,15 +167,17 @@ public class LevelStageEditor : Editor
         _eventsEditorList.DoLayoutList();
 
         serializedObject.ApplyModifiedProperties();
-        if (hasConstraintChanged)
+        if (hasEnemiesConstraintChanged)
         {
             _object.TransformWalls();
         }
         bool lastTriggerValue = _triggerFocus;
-        bool lastConstraintValue = _constraintFocus;
+        bool lastCamConstraintValue = _camConstraintFocus;
+        bool lastEnemiesConstraintValue = _enemiesConstraintFocus;
         _triggerFocus = _triggerControlNames.Contains(GUI.GetNameOfFocusedControl());
-        _constraintFocus = _constraintControlNames.Contains(GUI.GetNameOfFocusedControl());
-        if (_triggerFocus != lastTriggerValue || _constraintFocus != lastConstraintValue)
+        _camConstraintFocus = _camConstraintControlNames.Contains(GUI.GetNameOfFocusedControl());
+        _enemiesConstraintFocus = _enemiesConstraintControlNames.Contains(GUI.GetNameOfFocusedControl());
+        if (_triggerFocus != lastTriggerValue || _camConstraintFocus != lastCamConstraintValue || _enemiesConstraintFocus != lastEnemiesConstraintValue)
         {
             SceneView.RepaintAll();
         }

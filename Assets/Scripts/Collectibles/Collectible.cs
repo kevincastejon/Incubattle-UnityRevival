@@ -34,6 +34,9 @@ public class Collectible : MonoBehaviour
     private float _lootEndTime;
     private bool _isLooted;
 
+    public Vector2 InitialDirection { get => _initialDirection; set => _initialDirection = value; }
+    public Vector2 InitialVariation { get => _initialVariation; set => _initialVariation = value; }
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();

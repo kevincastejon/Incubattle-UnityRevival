@@ -17,6 +17,7 @@ public class Breakable : MonoBehaviour
     [Tooltip("Nombre de loots")]
     private int _lootCount;
     [Tooltip("Prefabs de loots")]
+    [SerializeField] private Transform _lootSpawnPoint;
     [SerializeField] private Collectible[] _lootsPool;
     [SerializeField] private UnityEvent _onHit;
     [SerializeField] private UnityEvent _onBreak;
@@ -75,10 +76,12 @@ public class Breakable : MonoBehaviour
             }
             _onHit.Invoke();
         }
-        
-        if(_health % 3 == 0)
+
+        if (_lootCount > 0 && _health % 3 == 0)
         {
-            Instantiate(_lootsPool[Random.Range(0, _lootsPool.Length)], transform.position, Quaternion.identity);
+            Collectible col = Instantiate(_lootsPool[Random.Range(0, _lootsPool.Length)], _lootSpawnPoint.position, Quaternion.identity);
+            col.InitialDirection = Vector2.down;
+            col.InitialVariation = Vector2.one * 0.5f;
             _lootCount--;
         }
     }
