@@ -229,7 +229,6 @@ public class EnemyController : MonoBehaviour
     // Variables d'attaques
     private Vector2 _lastMoveDirection = Vector2.right;                             // direction du dernier déplacement
     private Vector2 _knockBackDirection;                                            // direction du knockBack en cours
-    private Vector2 _dashDirection;                                                 // direction du dash en cours
     private HitType _hitType;                                                       // type du knockBack en cours
     private int _combo;                                                             // combo actuel
     private int _currentAttackMaxCombo;                                             // le nombre de fois où l'ia attaquera d'affilé

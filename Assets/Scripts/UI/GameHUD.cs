@@ -37,13 +37,14 @@ public class GameHUD : MonoBehaviour
     [SerializeField] private GameObject _victoryMenu;
     [SerializeField] private IntVariable _maxHealthPoints;
     [SerializeField] private IntVariable _maxStamina;
-    [SerializeField] private LevelManager _levelManager;
     [SerializeField] private TextMeshProUGUI _victoryScoreText;
     [SerializeField] private TextMeshProUGUI _timeText;
+    private LevelManager _levelManager;
 
 
     private void Awake()
     {
+        _levelManager = FindObjectOfType<LevelManager>();
         _score.OnChange.AddListener(OnScoreChange);
         _lifesP1.OnChange.AddListener(OnLifeChange);
         _healthPointsP1.OnChange.AddListener(OnHealthChange);

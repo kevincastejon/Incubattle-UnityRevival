@@ -6,13 +6,11 @@ public class HitBox : MonoBehaviour
 {
     [SerializeField] private LayerMask _attackBoxLayer;
     private BoxCollider2D _collider;
-    private Transform _transform;
     private AttackData _attackData;
 
     private void Awake()
     {
         _collider = GetComponent<BoxCollider2D>();
-        _transform = transform;
     }
     public bool DetectHit()
     {

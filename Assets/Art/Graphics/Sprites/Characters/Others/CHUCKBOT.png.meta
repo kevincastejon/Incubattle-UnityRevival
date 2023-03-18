@@ -33,7 +33,7 @@ TextureImporter:
       213: -5908557114361180356
     second: 58_Assets_CHUCKBOT_9
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -93,6 +93,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -142,215 +143,227 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_0
+      name: CHUCKBOT_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 484e9900038ca88c0800000000000000
-      internalID: -3996161610843822972
+      spriteID: b554585b97945f64e857799010fd1346
+      internalID: 1435372321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_1
+      name: CHUCKBOT_1
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0584eb8e33bdbe470800000000000000
-      internalID: 8425068543921244240
+      spriteID: a630c229c52e29f43be376d992be8261
+      internalID: 36691256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_2
+      name: CHUCKBOT_2
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af0211686f95317a0800000000000000
-      internalID: -6407678929471987462
+      spriteID: 9fcdd844a2becdd4fb25a4a02ab7f29a
+      internalID: -1172098194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_3
+      name: CHUCKBOT_3
       rect:
         serializedVersion: 2
         x: 288
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a91577e0e99c0ea0800000000000000
-      internalID: -5905175820154627676
+      spriteID: edf0f7cf62b96e640af192e1b2611416
+      internalID: -1917393813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_4
+      name: CHUCKBOT_4
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c56a8ad4cd4668ae0800000000000000
-      internalID: -1547438524596705700
+      spriteID: 339201fc4f8ca00419ef99445d40008a
+      internalID: -1892948405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_5
+      name: CHUCKBOT_5
       rect:
         serializedVersion: 2
         x: 480
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d90c03a6ff40ea80800000000000000
-      internalID: -8439657780976285230
+      spriteID: 6f81dee4cbd404c4e8e64740d1c8ffa3
+      internalID: -1662539687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_6
+      name: CHUCKBOT_6
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 854847a0b4d5b3ff0800000000000000
-      internalID: -55347993532660648
+      spriteID: 6458a9e6684f5634abe2bb724351bdb7
+      internalID: -1215697506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_7
+      name: CHUCKBOT_7
       rect:
         serializedVersion: 2
         x: 672
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b0e7ef25e4348300800000000000000
-      internalID: 253385637995471032
+      spriteID: a2f23dfb613dcf14599046d07cfa4f18
+      internalID: -115942854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_8
+      name: CHUCKBOT_8
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea5c387c3a538420800000000000000
-      internalID: 2631045823076260580
+      spriteID: 684573b8ddba8ee43abba775ec4b949e
+      internalID: -869004790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 58_Assets_CHUCKBOT_9
+      name: CHUCKBOT_9
       rect:
         serializedVersion: 2
         x: 864
         y: 0
         width: 96
         height: 189
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3f056ffb96900ea0800000000000000
-      internalID: -5908557114361180356
+      spriteID: 54c4fde9cd25b7741a5e03de5573e95f
+      internalID: -1526986643
       vertices: []
       indices: 
       edges: []
@@ -366,16 +379,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      58_Assets_CHUCKBOT_5: -8439657780976285230
-      58_Assets_CHUCKBOT_3: -5905175820154627676
-      58_Assets_CHUCKBOT_2: -6407678929471987462
-      58_Assets_CHUCKBOT_0: -3996161610843822972
-      58_Assets_CHUCKBOT_9: -5908557114361180356
-      58_Assets_CHUCKBOT_7: 253385637995471032
-      58_Assets_CHUCKBOT_1: 8425068543921244240
-      58_Assets_CHUCKBOT_6: -55347993532660648
-      58_Assets_CHUCKBOT_8: 2631045823076260580
-      58_Assets_CHUCKBOT_4: -1547438524596705700
+      CHUCKBOT_1: 36691256
+      CHUCKBOT_2: -1172098194
+      CHUCKBOT_5: -1662539687
+      CHUCKBOT_7: -115942854
+      CHUCKBOT_8: -869004790
+      CHUCKBOT_9: -1526986643
+      CHUCKBOT_0: 1435372321
+      CHUCKBOT_6: -1215697506
+      CHUCKBOT_3: -1917393813
+      CHUCKBOT_4: -1892948405
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
