@@ -16,4 +16,8 @@ public class ColorSetter : MonoBehaviour
     {
         _spriteRenderer.color = _colors[colorId];
     }
+    public void SetColor(Color color)
+    {
+        _spriteRenderer.color = color;
+    }
 }

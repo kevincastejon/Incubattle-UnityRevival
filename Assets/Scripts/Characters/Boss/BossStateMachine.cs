@@ -12,7 +12,7 @@ public enum BossState
 
 public class BossStateMachine : MonoBehaviour
 {
-    [SerializeField] [ReadOnly]private BossState _currentState;
+    [SerializeField] [ReadOnly] private BossState _currentState;
     private BossController _controller;
     [SerializeField] private BossHandStateMachine _leftHandStateMachine;
     [SerializeField] private BossHandStateMachine _rightHandStateMachine;
@@ -155,7 +155,6 @@ public class BossStateMachine : MonoBehaviour
 
     private void OnEnterThinking()
     {
-        Debug.Log("THINK");
         _controller.StartThinking();
     }
     private void OnUpdateThinking()
@@ -163,7 +162,6 @@ public class BossStateMachine : MonoBehaviour
         if (_controller.IsThinkingEnded && (_leftHandStateMachine == null || _leftHandStateMachine.CurrentState == BossHandState.IDLE) && (_rightHandStateMachine == null || _rightHandStateMachine.CurrentState == BossHandState.IDLE))
         {
             string pickedName = _unrisedIA.PickName();
-            Debug.Log(pickedName);
             if (pickedName == "ThinkAgain")
             {
                 TransitionToState(BossState.THINKING);
@@ -192,7 +190,6 @@ public class BossStateMachine : MonoBehaviour
 
     private void OnEnterWalking()
     {
-        Debug.Log("WALK");
     }
     private void OnUpdateWalking()
     {
@@ -212,7 +209,6 @@ public class BossStateMachine : MonoBehaviour
 
     private void OnEnterHunting()
     {
-        Debug.Log("HUNT");
         _controller.FindTarget();
     }
     private void OnUpdateHunting()
@@ -239,6 +235,7 @@ public class BossStateMachine : MonoBehaviour
 
     private void OnEnterRising()
     {
+        _animator.SetTrigger("Rising");
         _controller.StartRise();
     }
     private void OnUpdateRising()
@@ -256,6 +253,7 @@ public class BossStateMachine : MonoBehaviour
     }
     private void OnExitRising()
     {
+        _animator.ResetTrigger("Rising");
     }
 
     private void OnEnterAttacking()

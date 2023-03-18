@@ -32,7 +32,10 @@ public class ColorAnimator : MonoBehaviour
     }
     public void Init()
     {
+        Debug.Log("NIT");
         _isStarted = true;
+        _isCompleted = false;
+        _currentCount = 0;
         _currentColor = _colorStages[0].Color;
         SwitchToNextStage();
     }
@@ -41,11 +44,12 @@ public class ColorAnimator : MonoBehaviour
     {
         _currentStage = _nextStage;
         _nextStage++;
-        if (_nextStage == _colorStages.Length)
+        if (_nextStage >= _colorStages.Length)
         {
+            Debug.Log("TMECHECK");
             _nextStage = 0;
             _currentCount++;
-            if (_cycleCount > 0 && _currentCount == _cycleCount)
+            if (_cycleCount > 0 && _currentCount >= _cycleCount)
             {
                 _isCompleted = true;
                 _onComplete.Invoke(_currentColor);
@@ -63,6 +67,7 @@ public class ColorAnimator : MonoBehaviour
         }
         if (Time.time > _nextStageTime)
         {
+            
             SwitchToNextStage();
         }
         else if (!_stopAtNextCycle)

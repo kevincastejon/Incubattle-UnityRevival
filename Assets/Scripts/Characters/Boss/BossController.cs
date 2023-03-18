@@ -25,18 +25,20 @@ public class BossController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Transform _target;
     private GameHUD _gameHUD;
-
+    private ScreenShaker _shaker;
+    private ColorAnimator _colorAnimator;
     public bool IsRised { get; private set; }
     public bool IsThinkingEnded { get => Time.time >= _thinkingEndTime; }
     public bool IsRisingEnded { get => Time.time >= _risingEndTime; }
     public bool IsThinkingTime { get => Time.time >= _nextThoughtTime; }
     public bool IsAttackEnded { get => Time.time >= _attackEndTime; }
     public bool IsTargetReachable { get => Vector2.Distance(_target.position, transform.position) < 1f; }
-
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _colorAnimator = GetComponentInChildren<ColorAnimator>();
         _gameHUD = FindObjectOfType<GameHUD>();
+        _shaker = FindObjectOfType<ScreenShaker>();
     }
 
     public void FindTarget()
@@ -74,7 +76,7 @@ public class BossController : MonoBehaviour
     {
         // On calcule la progression de la montée
         float risingProgress = (_risingDuration - (_risingEndTime - Time.time)) / _risingDuration;
-        _body.localPosition = new Vector2(0f, _riseCurve.Evaluate(risingProgress));
+        _body.localPosition = new Vector3(0f, _riseCurve.Evaluate(risingProgress), _body.localPosition.z);
     }
 
     public void StartHit()
@@ -85,10 +87,15 @@ public class BossController : MonoBehaviour
     {
         // On calcule la progression de l'attaque
         float hitProgress = (_attackDuration - (_attackEndTime - Time.time)) / _attackDuration;
-        _body.localPosition = new Vector2(0f, _hitCurve.Evaluate(hitProgress));
+        _body.localPosition = new Vector3(0f, _hitCurve.Evaluate(hitProgress), _body.localPosition.z);
+        if (hitProgress >= 0.29f && hitProgress <= 0.31f)
+        {
+            _shaker.Shake();
+        }
     }
     public void Hurt()
     {
+        _colorAnimator.Init();
         _health--;
         if (_health == 0)
         {

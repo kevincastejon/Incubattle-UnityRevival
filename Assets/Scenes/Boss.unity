@@ -425,6 +425,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &214395281 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8583121719663391620, guid: d3c84bc9d602eaf4092993adc85218ce, type: 3}
+  m_PrefabInstance: {fileID: 2123591437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &411163454
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +488,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1684337155524032788, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
       propertyPath: _health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2342306805181566976, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6054661905710456944, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
@@ -533,13 +542,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chucky
       objectReference: {fileID: 0}
+    - target: {fileID: 6054661905710456958, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054661905710456958, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6071678642610896948, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
       propertyPath: _health
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6594144926288627130, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
       propertyPath: _health
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6054661906071306666, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
@@ -1179,7 +1196,7 @@ MonoBehaviour:
   _useYAxis: 1
   _useZAxis: 0
   _autoRun: 0
-  _target: {fileID: 0}
+  _target: {fileID: 214395281}
 --- !u!4 &1106032802
 Transform:
   m_ObjectHideFlags: 0
@@ -1195,6 +1212,55 @@ Transform:
   m_Father: {fileID: 411163455}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1402293568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2342306805181566976, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+  m_PrefabInstance: {fileID: 443070077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1402293573 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4962503447468757468, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+  m_PrefabInstance: {fileID: 443070077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1402293575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402293568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643793a244c9a6446acce7add721bfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorStages:
+  - _duration: 0.05
+    _color: {r: 1, g: 1, b: 1, a: 1}
+  - _duration: 0.05
+    _color: {r: 1, g: 0, b: 0, a: 1}
+  _onColorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1402293573}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_color
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentColor: {r: 1, g: 1, b: 1, a: 1}
+  _cycleCount: 3
+  _autoRun: 0
+  _stopAtNextCycle: 1
 --- !u!1 &1632335543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6054661906071306664, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
@@ -1243,6 +1309,104 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8583121720979446708, guid: d3c84bc9d602eaf4092993adc85218ce, type: 3}
   m_PrefabInstance: {fileID: 2123591437}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1814595141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4616412414011657294, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+  m_PrefabInstance: {fileID: 443070077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1814595146 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7108776055792528910, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+  m_PrefabInstance: {fileID: 443070077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1814595148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814595141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643793a244c9a6446acce7add721bfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorStages:
+  - _duration: 0.05
+    _color: {r: 1, g: 1, b: 1, a: 1}
+  - _duration: 0.05
+    _color: {r: 1, g: 0, b: 0, a: 1}
+  _onColorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1814595146}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_color
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentColor: {r: 1, g: 1, b: 1, a: 1}
+  _cycleCount: 3
+  _autoRun: 0
+  _stopAtNextCycle: 1
+--- !u!1 &1977511902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6054661907266483432, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+  m_PrefabInstance: {fileID: 443070077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1977511905 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6054661907266483439, guid: 6640495d42799414ba90640ad0617ff5, type: 3}
+  m_PrefabInstance: {fileID: 443070077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1977511906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977511902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643793a244c9a6446acce7add721bfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorStages:
+  - _duration: 0.05
+    _color: {r: 1, g: 1, b: 1, a: 1}
+  - _duration: 0.05
+    _color: {r: 1, g: 0, b: 0, a: 1}
+  _onColorChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1977511905}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_color
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _currentColor: {r: 1, g: 1, b: 1, a: 1}
+  _cycleCount: 3
+  _autoRun: 0
+  _stopAtNextCycle: 1
 --- !u!1 &2081487341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,6 +1629,10 @@ PrefabInstance:
     - target: {fileID: 1865759250694066359, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865759250694066359, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8657706485386402895, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
       propertyPath: _levelManager
