@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: KevinCastejon
-  productName: BeatEmUp
+  productName: Incubattle-UnityRevival
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -156,7 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.KevinCastejon.BeatEmUp
-    Standalone: com.KevinCastejon.BeatEmUp
+    Standalone: com.KevinCastejon.Incubattle-UnityRevival
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -773,7 +773,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 1
   windowsGamepadBackendHint: 0
   cloudProjectId: 63ca8610-11c5-4ba8-bb82-8a00313338a6
   framebufferDepthMemorylessMode: 0

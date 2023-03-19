@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class HeroInput : MonoBehaviour
 {
     [SerializeField] private string _horizontalAxisName = "Horizontal";
     [SerializeField] private string _verticalAxisName = "Vertical";
@@ -55,43 +55,37 @@ public class PlayerInput : MonoBehaviour
 
     private bool _axisSprintInUse;
 
+    private Inputs _inputs;
+
+    private void Awake()
+    {
+        _inputs = new Inputs();
+        _inputs.Player.Enable();
+    }
+
     private void Update()
     {
-        // On stocke la valeur de l'axe de déplacement
-        _movement = new Vector2(Input.GetAxisRaw(_horizontalAxisName), Input.GetAxisRaw(_verticalAxisName));
+        //// On stocke la valeur de l'axe de déplacement
+        _movement = _inputs.Player.Move.ReadValue<Vector2>();
 
-        // On stocke la valeur de l'input Attack
-        _attack = Input.GetButton(_attackButtonName);
-        // On stocke la valeur 'down' de l'input Attack
-        _attackDown = Input.GetButtonDown(_attackButtonName);
+        //// On stocke la valeur de l'input Attack
+        _attack = _inputs.Player.Attack.ReadValue<float>()>0f;
+        //// On stocke la valeur 'down' de l'input Attack
+        _attackDown = _inputs.Player.Attack.triggered;
 
         // On stocke la valeur de l'input Jump
-        _jump = Input.GetButton(_jumpButtonName);
+        _jump = _inputs.Player.Jump.ReadValue<float>() > 0f;
         // On stocke la valeur 'down' de l'input Jump
-        _jumpDown = Input.GetButtonDown(_jumpButtonName);
+        _jumpDown = _inputs.Player.Jump.triggered;
 
         // On stocke la valeur de l'input Sprint
-        _sprint = Input.GetButton(_sprintButtonName) || Input.GetAxisRaw(_sprintButtonName) > 0f;
-        //
-        bool axisAsButton = false;
-        if (Input.GetAxisRaw(_sprintButtonName) > 0f)
-        {
-            if (!_axisSprintInUse)
-            {
-                _axisSprintInUse = true;
-                axisAsButton = true;
-            }
-        }
-        else
-        {
-            _axisSprintInUse = false;
-        }
+        _sprint = _inputs.Player.Sprint.ReadValue<float>() > 0f;
         // On stocke la valeur 'down' de l'input Sprint
-        _sprintDown = Input.GetButtonDown(_sprintButtonName) || axisAsButton;
+        _sprintDown = _inputs.Player.Sprint.triggered;
 
         // On stocke la valeur de l'input Special
-        _special = Input.GetButton(_specialButtonName);
+        _special = _inputs.Player.Special.ReadValue<float>() > 0f;
         // On stocke la valeur 'down' de l'input Special
-        _specialDown = Input.GetButtonDown(_specialButtonName);
+        _specialDown = _inputs.Player.Special.triggered;
     }
 }

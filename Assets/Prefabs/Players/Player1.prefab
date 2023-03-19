@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 719941620}
+  _forceFrontRef: 0
 --- !u!61 &6655123125574188110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -219,7 +220,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1114887457
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -236,7 +237,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1351124551
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 1351124552}
+  _forceFrontRef: 0
 --- !u!61 &4388151371996357613
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -450,7 +452,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &6276207509985521743
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -467,7 +469,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &50865027095065275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 7248222874302398305}
+  _forceFrontRef: 0
 --- !u!1 &1972361545835184265
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +542,7 @@ MonoBehaviour:
   _land: {fileID: 1640857612403671595}
   _throw: {fileID: 6189728398921162127}
   _punchPrefab: {fileID: 2955223878483003605, guid: cdb3ac83b243085458fa36f178713339, type: 3}
+  _punchZAxisSorterTranform: {fileID: 0}
 --- !u!1 &2778076765833894126
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +555,7 @@ GameObject:
   - component: {fileID: 2778076765833894117}
   - component: {fileID: 2778076765833894116}
   - component: {fileID: 2778076765833894119}
-  - component: {fileID: 1106975447560820082}
+  - component: {fileID: 3196318799402288410}
   - component: {fileID: 4737523494164518994}
   - component: {fileID: 4737523494164518995}
   - component: {fileID: 4095914594687363974}
@@ -602,7 +606,7 @@ CircleCollider2D:
   m_Radius: 0.05
 --- !u!95 &2778076765833894116
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -619,7 +623,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!50 &2778076765833894119
 Rigidbody2D:
   serializedVersion: 4
@@ -641,7 +645,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1106975447560820082
+--- !u!114 &3196318799402288410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -650,7 +654,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2778076765833894126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b526f6847ed97468af75dc66648c45, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fcb9e1aec85a8649bab1507f270c8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontalAxisName: Horizontal
@@ -749,6 +753,7 @@ MonoBehaviour:
   _lifes: {fileID: 11400000, guid: c54ffd68fe006b44c979a1cc23ac9fa3, type: 2}
   _startingLifes: {fileID: 11400000, guid: 8ced3723e6408e24b949a6c4b65d3a61, type: 2}
   _resurrectionDuration: 3
+  _vanishingDuration: 3
   _speed: 2.5
   _sprintSpeed: 5
   _jumpDuration: 0.7
@@ -1102,6 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 2778076765833894112}
+  _forceFrontRef: 0
 --- !u!1 &2778076767093697585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2853489652936287406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.010000002, z: 0}
+  m_LocalPosition: {x: 0, y: -0.010000002, z: -0.010000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1358,7 +1364,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &8764215680567862358
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1375,7 +1381,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &1782065418812750154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,6 +1395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 2501308491583981246}
+  _forceFrontRef: 0
 --- !u!1 &3231732258322507672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3428530074448840672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.010000002, z: 0}
+  m_LocalPosition: {x: 0, y: -0.010000002, z: -0.010000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1551,7 +1558,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &1640857612403671595
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1568,7 +1575,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &2053946719790219154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,6 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 799133763571459914}
+  _forceFrontRef: 0
 --- !u!1 &4064704907653856316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1617,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4064704907653856316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.010000002, z: 0}
+  m_LocalPosition: {x: 0, y: -0.010000002, z: -0.010000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1670,7 +1678,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4401989850103825759
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1687,7 +1695,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &896292918704539218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,6 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 7679348684844628637}
+  _forceFrontRef: 0
 --- !u!1 &4448513955655247148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,7 +2098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6528327095225616602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.616, z: 0}
+  m_LocalPosition: {x: 0, y: 1.616, z: 1.616}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2150,7 +2159,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &6189728398921162127
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2167,7 +2176,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &3737127987751667238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,6 +2190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 3136783120300464083}
+  _forceFrontRef: 0
 --- !u!1 &8934172591368038368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,7 +2279,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4885344684464952303
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2286,7 +2296,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &7820823762822128274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2300,3 +2310,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTransform: {fileID: 597031939569587672}
+  _forceFrontRef: 0

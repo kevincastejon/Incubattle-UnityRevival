@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
             {
                 _cameraFollow.Target2 = _p2.transform;
             }
-            PlayerInput p2Input = _p2.GetComponent<PlayerInput>();
+            HeroInput p2Input = _p2.GetComponent<HeroInput>();
             p2Input.HorizontalAxisName += "P2";
             p2Input.VerticalAxisName += "P2";
             p2Input.JumpButtonName += "P2";

@@ -15,7 +15,7 @@ public class AirStateMachine : MonoBehaviour
     private Animator _animator;
     private VFXController _vfxController;
     private SFXController _sfxController;
-    private PlayerInput _input;
+    private HeroInput _input;
     private PlayerController _controller;
     private HealthStateMachine _healthStateMachine;
     private CombatStateMachine _combatStateMachine;
@@ -28,7 +28,7 @@ public class AirStateMachine : MonoBehaviour
         _animator = GetComponent<Animator>();
         _vfxController = GetComponentInChildren<VFXController>();
         _sfxController = GetComponentInChildren<SFXController>();
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<HeroInput>();
         _controller = GetComponent<PlayerController>();
         _healthStateMachine = GetComponent<HealthStateMachine>();
         _combatStateMachine = GetComponent<CombatStateMachine>();

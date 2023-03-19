@@ -12,7 +12,7 @@ public class MovementStateMachine : MonoBehaviour
     [SerializeField] private MovementState _currentState;
     private Animator _animator;
     private VFXController _vfxController;
-    private PlayerInput _input;
+    private HeroInput _input;
     private PlayerController _controller;
     private HealthStateMachine _healthStateMachine;
     private CombatStateMachine _combatStateMachine;
@@ -34,7 +34,7 @@ public class MovementStateMachine : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _vfxController = GetComponentInChildren<VFXController>();
-        _input = GetComponent<PlayerInput>();
+        _input = GetComponent<HeroInput>();
         _controller = GetComponent<PlayerController>();
         _healthStateMachine = GetComponent<HealthStateMachine>();
         _combatStateMachine = GetComponent<CombatStateMachine>();

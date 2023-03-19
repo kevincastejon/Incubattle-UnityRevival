@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     private Transform _transform;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
-    private PlayerInput _playerInput;
+    private HeroInput _playerInput;
     private VFXController _vfxController;
     private SFXController _sfxController;
 
@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _playerInput = GetComponent<PlayerInput>();
+        _playerInput = GetComponent<HeroInput>();
         _vfxController = GetComponentInChildren<VFXController>();
         _sfxController = GetComponentInChildren<SFXController>();
     }

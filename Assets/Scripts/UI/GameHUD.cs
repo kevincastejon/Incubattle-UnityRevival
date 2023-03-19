@@ -124,8 +124,8 @@ public class GameHUD : MonoBehaviour
         string secs = (_levelManager.ElapsedTime - Mathf.FloorToInt(_levelManager.ElapsedTime / 60f) / 60f).ToString("F2");
         _timeText.text = "TIME : " + mins + " : " + secs;
         _victoryMenu.SetActive(true);
-        PlayerInput[] _players = FindObjectsOfType<PlayerInput>();
-        foreach (PlayerInput player in _players)
+        HeroInput[] _players = FindObjectsOfType<HeroInput>();
+        foreach (HeroInput player in _players)
         {
             player.GetComponent<Animator>().SetTrigger("Victory");
             player.enabled = false;
