@@ -1,10 +1,11 @@
+using KevinCastejon.KeyOrButtonEvents;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace KevinCastejon.KeyOrButtonEvents
-{
+//namespace KevinCastejon.KeyOrButtonEvents
+//{
     public class KeyOrButtonEvents : MonoBehaviour
     {
         [SerializeField] private InputEventType _type;
@@ -13,11 +14,19 @@ namespace KevinCastejon.KeyOrButtonEvents
         [SerializeField] private UnityEvent _downEvent;
         [SerializeField] private UnityEvent _upEvent;
 
+
         public InputEventType Type { get => _type; set => _type = value; }
         public KeyCode Key { get => _key; set => _key = value; }
         public string VirtualButtonName { get => _virtualButtonName; set => _virtualButtonName = value; }
         public UnityEvent DownEvent { get => _downEvent; }
         public UnityEvent UpEvent { get => _upEvent; }
+        private Inputs _inputs;
+        private void Awake()
+        {
+            _inputs = new Inputs();
+            _inputs.Player.Enable();
+        }
+
 
         private void Update()
         {
@@ -25,7 +34,7 @@ namespace KevinCastejon.KeyOrButtonEvents
             {
                 if (Key == KeyCode.None)
                 {
-                    if (Input.anyKeyDown)
+                    if (_inputs.Player.AnyKey.triggered)
                     {
                         DownEvent.Invoke();
                     }
@@ -55,4 +64,4 @@ namespace KevinCastejon.KeyOrButtonEvents
             }
         }
     }
-}
+//}

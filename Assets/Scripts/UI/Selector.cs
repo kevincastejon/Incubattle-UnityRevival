@@ -23,9 +23,11 @@ public class Selector : MonoBehaviour
 
     public int Selection { get => _selection; }
     public bool Selected { get => _selected; }
-
+    private Inputs _inputs;
     private void Awake()
     {
+        _inputs = new Inputs();
+        _inputs.UI.Enable();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -44,7 +46,7 @@ public class Selector : MonoBehaviour
         {
             return;
         }
-        float axisValue = Input.GetAxisRaw(_axisName);
+        float axisValue = _inputs.UI.Navigate.ReadValue<Vector2>().x;
         if (axisValue != 0f)
         {
             if (!_axisInUse)
@@ -65,7 +67,7 @@ public class Selector : MonoBehaviour
         {
             _axisInUse = false;
         }
-        if (Input.GetButtonDown(_buttonName))
+        if (_inputs.UI.Submit.triggered)
         {
             _selected = true;
             _onSelect.Invoke(_selection);

@@ -14,7 +14,7 @@ public enum MenuStates
 
 public class MenuStateMachine : MonoBehaviour
 {
-    [ReadOnly][SerializeField] private MenuStates _currentState;
+    [ReadOnly] [SerializeField] private MenuStates _currentState;
     [SerializeField] private IntVariable _score;
     [SerializeField] private IntVariable _currentLevel;
     [SerializeField] private Selector _modeSelector;
@@ -41,7 +41,12 @@ public class MenuStateMachine : MonoBehaviour
 
 
     public MenuStates CurrentState { get => _currentState; private set => _currentState = value; }
-
+    private Inputs _inputs;
+    private void Awake()
+    {
+        _inputs = new Inputs();
+        _inputs.UI.Enable();
+    }
     private void Start()
     {
         _score.Value = 0;
@@ -169,7 +174,7 @@ public class MenuStateMachine : MonoBehaviour
     }
     private void OnUpdateSoloPicking()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (_inputs.UI.Cancel.triggered)
         {
             _modeSelector.Unselect();
             TransitionToState(MenuStates.MODE_SELECTION);
@@ -193,7 +198,7 @@ public class MenuStateMachine : MonoBehaviour
     }
     private void OnUpdateCoopPicking()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (_inputs.UI.Cancel.triggered)
         {
             _modeSelector.Unselect();
             TransitionToState(MenuStates.MODE_SELECTION);
@@ -223,7 +228,7 @@ public class MenuStateMachine : MonoBehaviour
     }
     private void OnUpdateCoopP1Picked()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (_inputs.UI.Cancel.triggered)
         {
             _p1Selector.Unselect();
             TransitionToState(MenuStates.COOP_PICKING);
@@ -239,7 +244,7 @@ public class MenuStateMachine : MonoBehaviour
             _p2Character.Value = _charactersPrefabs[_p2Selector.Selection];
             TransitionToState(MenuStates.OUTRO);
             return;
-            
+
         }
     }
     private void OnExitCoopP1Picked()
@@ -253,7 +258,7 @@ public class MenuStateMachine : MonoBehaviour
     }
     private void OnUpdateCoopP2Picked()
     {
-        if (Input.GetButtonDown("CancelP2"))
+        if (_inputs.UI.Cancel.triggered)
         {
             _p2Selector.Unselect();
             TransitionToState(MenuStates.COOP_PICKING);
@@ -282,7 +287,7 @@ public class MenuStateMachine : MonoBehaviour
         _charactersPreviews[_p1Selector.Selection].SetTrigger("Intro");
         if (_isCoop.Value)
         {
-        _charactersPreviews[_p2Selector.Selection].SetTrigger("Intro");
+            _charactersPreviews[_p2Selector.Selection].SetTrigger("Intro");
         }
     }
     private void OnUpdateOutro()

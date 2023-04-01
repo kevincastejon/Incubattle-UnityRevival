@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
-namespace KevinCastejon.KeyOrButtonEvents
-{
+//namespace KevinCastejon.KeyOrButtonEvents
+//{
     [CustomEditor(typeof(KeyOrButtonEvents))]
     public class KeyOrButtonEventsEditor : Editor
     {
@@ -45,4 +45,4 @@ namespace KevinCastejon.KeyOrButtonEvents
             serializedObject.ApplyModifiedProperties();
         }
     }
-}
+//}
