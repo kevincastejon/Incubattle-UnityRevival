@@ -385,9 +385,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 7.5}
   _triggerAreaOffset: {x: 0, y: 0}
-  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintArea: {x: 18, y: 7.5}
   _camConstraintAreaOffset: {x: 0, y: 0}
-  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 18, y: 7.5}
   _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 0
@@ -1042,7 +1042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178167906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.350002, y: 0, z: 0}
+  m_LocalPosition: {x: 9.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1259,7 +1259,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.33333, y: 1}
+  m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &188276704
 GameObject:
@@ -1365,9 +1365,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 7.5}
   _triggerAreaOffset: {x: 0, y: 0}
-  _camConstraintArea: {x: 17.65, y: 7.5}
+  _camConstraintArea: {x: 18, y: 7.5}
   _camConstraintAreaOffset: {x: 0, y: 0}
-  _enemiesConstraintArea: {x: 17.65, y: 7.5}
+  _enemiesConstraintArea: {x: 18, y: 7.5}
   _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 2
@@ -1615,7 +1615,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.65, y: 1}
+  m_Size: {x: 18, y: 1}
   m_EdgeRadius: 0
 --- !u!1001 &294834197
 PrefabInstance:
@@ -1704,7 +1704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327639931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.325, y: 0, z: 0}
+  m_LocalPosition: {x: 9.499999, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1866,7 +1866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410888947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.325, y: 0, z: 0}
+  m_LocalPosition: {x: -9.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1963,9 +1963,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 7.5}
   _triggerAreaOffset: {x: 0, y: 0}
-  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintArea: {x: 10, y: 7.5}
   _camConstraintAreaOffset: {x: 0, y: 0}
-  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 10, y: 7.5}
   _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 0
@@ -2170,7 +2170,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.7, y: 1}
+  m_Size: {x: 18, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &475528258
 GameObject:
@@ -2234,9 +2234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 7.5}
   _triggerAreaOffset: {x: 0, y: 0}
-  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintArea: {x: 10, y: 7.5}
   _camConstraintAreaOffset: {x: 0, y: 0}
-  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 10, y: 7.5}
   _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 0
@@ -2545,7 +2545,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.33333, y: 1}
+  m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &565474622
 GameObject:
@@ -2731,7 +2731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580736405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.166665, y: 0, z: 0}
+  m_LocalPosition: {x: 5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3262,7 +3262,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 83db1784d24d80b438bd39847be8625d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.083
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3386,7 +3386,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821033407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.350002, y: 0, z: 0}
+  m_LocalPosition: {x: -9.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3475,7 +3475,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.33333, y: 1}
+  m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &843702289
 GameObject:
@@ -3658,6 +3658,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &869163601
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3747,7 +3748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874208385}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.166665, y: 0, z: 0}
+  m_LocalPosition: {x: -5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4255,7 +4256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.65, y: 1}
+  m_Size: {x: 18, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1005537296
 GameObject:
@@ -4781,7 +4782,7 @@ MonoBehaviour:
   _useYAxis: 1
   _useZAxis: 0
   _autoRun: 0
-  _target: {fileID: 0}
+  _target: {fileID: 1304023575}
 --- !u!4 &1106032802
 Transform:
   m_ObjectHideFlags: 0
@@ -4832,6 +4833,17 @@ Transform:
   m_Father: {fileID: 417596691}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147220691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8583121721403761443, guid: d3c84bc9d602eaf4092993adc85218ce, type: 3}
+  m_PrefabInstance: {fileID: 1304023574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d424798a5e582f42a9477204134a78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1149762449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5010,7 +5022,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.7, y: 1}
+  m_Size: {x: 18, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1290656260
 GameObject:
@@ -5131,6 +5143,11 @@ PrefabInstance:
       objectReference: {fileID: 565474626}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3c84bc9d602eaf4092993adc85218ce, type: 3}
+--- !u!4 &1304023575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8583121719663391620, guid: d3c84bc9d602eaf4092993adc85218ce, type: 3}
+  m_PrefabInstance: {fileID: 1304023574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1334257613
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,7 +5811,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475927708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.166664, y: 0, z: 0}
+  m_LocalPosition: {x: -5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5883,7 +5900,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.33333, y: 1}
+  m_Size: {x: 10, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &1492128234
 GameObject:
@@ -5952,9 +5969,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 7.5}
   _triggerAreaOffset: {x: 0, y: 0}
-  _camConstraintArea: {x: 17.7, y: 7.5}
+  _camConstraintArea: {x: 18, y: 7.5}
   _camConstraintAreaOffset: {x: 0, y: 0}
-  _enemiesConstraintArea: {x: 17.7, y: 7.5}
+  _enemiesConstraintArea: {x: 18, y: 7.5}
   _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 2
@@ -6551,7 +6568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771620465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.166664, y: 0, z: 0}
+  m_LocalPosition: {x: 5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6901,6 +6918,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1902974536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7858,6 +7876,10 @@ PrefabInstance:
     - target: {fileID: 1865759250681051957, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
       propertyPath: _downEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1147220691}
+    - target: {fileID: 1865759250681051957, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
+      propertyPath: _downEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartNextLevel
       objectReference: {fileID: 0}
     - target: {fileID: 1865759250694066355, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
       propertyPath: m_Pivot.x

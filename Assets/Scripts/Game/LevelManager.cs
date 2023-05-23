@@ -38,6 +38,7 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
+        SetRatio();
         _p1 = Instantiate(_p1Prefab.Value, _p1Starter.position, Quaternion.identity).GetComponent<PlayerController>();
         if (_cameraFollow)
         {
@@ -74,5 +75,9 @@ public class LevelManager : MonoBehaviour
     {
         // on recharge la scène
         SceneManager.LoadScene(_levels[_currentLevel.Value]);
+    }
+    void SetRatio()
+    {
+        Screen.SetResolution(1280, 960, false);
     }
 }

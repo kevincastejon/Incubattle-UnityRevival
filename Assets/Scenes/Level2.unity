@@ -473,6 +473,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &97103149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -648,6 +649,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4476053103154283589, guid: c11e9d5a358f94d4a97797c3bbde0e7e, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4476053103748968238, guid: c11e9d5a358f94d4a97797c3bbde0e7e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1648,6 +1653,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &618481027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1871,7 +1877,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 0}
-  _constraintArea: {x: 20, y: 20}
+  _triggerAreaOffset: {x: 0, y: 0}
+  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintAreaOffset: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 1
     _text: {fileID: 0}
@@ -3866,7 +3876,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 0}
-  _constraintArea: {x: 20, y: 20}
+  _triggerAreaOffset: {x: 0, y: 0}
+  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintAreaOffset: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 1
     _text: {fileID: 0}
@@ -4112,6 +4126,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1865759250681051957, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
+      propertyPath: _downEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 545633499}
+    - target: {fileID: 1865759250681051957, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
+      propertyPath: _downEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartNextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 1865759250694066355, guid: 74293642aa3df3d49b4943eb01be4951, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4859,7 +4881,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 0}
-  _constraintArea: {x: 20, y: 20}
+  _triggerAreaOffset: {x: 0, y: 0}
+  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintAreaOffset: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 1
     _text: {fileID: 0}
@@ -5188,7 +5214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 0}
-  _constraintArea: {x: 20, y: 20}
+  _triggerAreaOffset: {x: 0, y: 0}
+  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintAreaOffset: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 1
     _text: {fileID: 0}
@@ -6449,7 +6479,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerArea: {x: 1, y: 1}
-  _constraintArea: {x: 20, y: 20}
+  _triggerAreaOffset: {x: 0, y: 0}
+  _camConstraintArea: {x: 0, y: 0}
+  _camConstraintAreaOffset: {x: 0, y: 0}
+  _enemiesConstraintArea: {x: 0, y: 0}
+  _enemiesConstraintAreaOffset: {x: 0, y: 0}
   _events:
   - _type: 0
     _text: {fileID: 599909764}

@@ -32,7 +32,6 @@ public class ColorAnimator : MonoBehaviour
     }
     public void Init()
     {
-        Debug.Log("NIT");
         _isStarted = true;
         _isCompleted = false;
         _currentCount = 0;
@@ -46,7 +45,6 @@ public class ColorAnimator : MonoBehaviour
         _nextStage++;
         if (_nextStage >= _colorStages.Length)
         {
-            Debug.Log("TMECHECK");
             _nextStage = 0;
             _currentCount++;
             if (_cycleCount > 0 && _currentCount >= _cycleCount)

@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
         // On remet les vies du personnage au max
         _lifes.Value = _startingLifes.Value;
         // On remet la stamina à 0
-        _stamina.Value = 10;
+        _stamina.Value = 0;
     }
 
     public void DoTurnCharacter()
